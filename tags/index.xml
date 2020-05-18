@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Ryan&#39;s blog</title>
+    <link>https://theryanlin.github.io/tags/</link>
+    <description>Recent content in Tags on Ryan&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2020 20:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Game</title>
+      <link>https://theryanlin.github.io/tags/game/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>https://theryanlin.github.io/tags/html/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>New</title>
+      <link>https://theryanlin.github.io/tags/new/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/new/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photos</title>
+      <link>https://theryanlin.github.io/tags/photos/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/photos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://theryanlin.github.io/tags/python/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

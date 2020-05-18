@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game on Ryan&#39;s blog</title>
+    <link>https://theryanlin.github.io/tags/game/</link>
+    <description>Recent content in Game on Ryan&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2020 20:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>新加坡商業分析研究所申請：2020 SMU MITB Offer!</title>
+      <link>https://theryanlin.github.io/blog/post-01/</link>
+      <pubDate>Fri, 06 Mar 2020 20:00:00 +0800</pubDate>
+      
+      <guid>https://theryanlin.github.io/blog/post-01/</guid>
+      <description>希望能以此篇記錄自己的逐夢的過程，同時鼓舞正在逐夢的你！
+申請過程大綱：  筆者背景 出國國家選擇原因 申請學校/系所 申請與準備時程 心得  背景  學歷：成大機械 GPA：69/100（直接公布百分制，避免各式GPA計算造成的誤會） TOEFL：93 GRE：315（Q 170）  出國國家選擇： 新加坡應該是少數人的首選，但受到一位港科大MBA學長鼓舞，因此在選擇研究所時只考慮香港與新加坡，但因反送中後，只申請新加坡的學校，原因有三：</description>
+    </item>
+    
+    <item>
+      <title>How To Use Checklists To Improve Your UX</title>
+      <link>https://theryanlin.github.io/blog/post-13/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
+      
+      <guid>https://theryanlin.github.io/blog/post-13/</guid>
+      <description>Heading 1 Heading 2 Heading 3 Heading 4 Heading 5 Heading 6 Emphasis Emphasis, aka italics, with asterisks or underscores.</description>
+    </item>
+    
+  </channel>
+</rss>
