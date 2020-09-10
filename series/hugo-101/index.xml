@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LIN Tzu Chun (Ryan)</title>
-    <link>https://theryanlin.github.io/</link>
-    <description>Recent content on LIN Tzu Chun (Ryan)</description>
+    <title>Hugo 101 on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/series/hugo-101/</link>
+    <description>Recent content in Hugo 101 on LIN Tzu Chun (Ryan)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://theryanlin.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://theryanlin.github.io/series/hugo-101/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -50,19 +50,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://theryanlin.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/about/</guid>
-      <description>WORK EXPERIENCE   Business Analyst @DBS Bank
-Marketing Campaign Management
-  Planning Engineer @Compeq Manufacturing
-Strategy &amp;amp; Planning
-  </description>
     </item>
     
     <item>
