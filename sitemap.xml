@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://theryanlin.github.io/insights/creating-a-new-theme-copy1/</loc>
-    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://theryanlin.github.io/portfolio/creating-a-new-theme-copy1/</loc>
     <lastmod>2020-09-10T00:00:00+00:00</lastmod>
   </url>
@@ -23,12 +18,22 @@
   </url>
   
   <url>
+    <loc>https://theryanlin.github.io/about/</loc>
+    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://theryanlin.github.io/series/hugo-101/</loc>
     <lastmod>2020-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://theryanlin.github.io/insights/</loc>
+    <lastmod>2020-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://theryanlin.github.io/</loc>
     <lastmod>2020-09-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,16 +45,6 @@
   <url>
     <loc>https://theryanlin.github.io/series/</loc>
     <lastmod>2020-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://theryanlin.github.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://theryanlin.github.io/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
