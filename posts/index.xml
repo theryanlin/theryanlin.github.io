@@ -1,0 +1,101 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on LIN Tzu Chun (Ryan)</title>
+        <link>https://theryanlin.github.io/posts/</link>
+        <description>Recent content in Posts on LIN Tzu Chun (Ryan)</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://theryanlin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Sportportal: GYM Number Prediction - 2020 Datathon</title>
+            <link>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</link>
+            <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</guid>
+            <description>I always grab any chance to get hands-on experience to solve a real problem. Recently, my 2 ex-colleagues at gogoro with me joined in 2020 Datathon, a gathering not a competition. I am writing to share my steps and the solution!
+Before Coding In the begining, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
+            <content type="html"><![CDATA[<p>I always grab any chance to get hands-on experience to solve a real problem. Recently, my 2 ex-colleagues at <strong>gogoro</strong> with me joined in <a href="https://2020datathon.wixsite.com/hack?fbclid=IwAR2Wq_WmulssiwOFqQ9wh_vRwReLGh2XQmlrWVnMgWBC9lgqX9vnjDD4074">2020 Datathon</a>, a gathering not a competition. I am writing to share my steps and the solution!</p>
+<h2 id="before-coding">Before Coding</h2>
+<p>In the begining, we don&rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits. To avoid this, we provide ideas based on our daily experience!</p>
+<h3 id="do-a-small-thing">Do a Small Thing</h3>
+<p>Due to Only 40 hours, 3 people, and limited resources, we should have an acceotable, useful, and executable solution. To be more specific, we just try to solve a small pain point, <strong>Workout</strong>! It&rsquo;s so difficult to do workout regularly, even more difficult to work out in a crowded gym. Sometimes, I just get there and wanna back home directly because there are too many poeple. Apparently, if someone could tell me what time is good for me to go to a gym, I can save time and arrange my schedule more properly. Our target is to build a site, Sportportal, showing real-time and prediction people number in gyms.</p>
+<h3 id="check-resources">Check Resources</h3>
+<p>In order to do Sportportal, we decide to use weather data to predict people number in a gym. There is 12 sports centers in taipei, roghtly scattered around 12 Taipei district. Also, weather prediction is divied into every single district in Taipei. Weather and willingness about workout seems correlative, so we work in this direction.</p>
+<p><strong>Data List</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> weather history data</li>
+<li><input checked="" disabled="" type="checkbox"> weather prediction</li>
+<li><input disabled="" type="checkbox"> gym people number history data</li>
+<li><input checked="" disabled="" type="checkbox"> real-time gym people number</li>
+</ul>
+<h2 id="lets-do-coding">let&rsquo;s do coding</h2>
+<h3 id="people-number-in-gym">People Number in GYM</h3>
+<p>We can&rsquo;t find gym people number history data, so we write a crawler to get people number in gyms and restore them. However, since registration in to this Datathon, we only have 7 dyas to collect data. It turns out that we don&rsquo;t have enough labels.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver
+
+driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome(chromedriver)
+driver<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;http://booking.tpsc.sporetrofit.com/Home/LocationPeopleNum&#39;</span>)
+data <span style="color:#f92672">=</span> [(driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_BTSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_DASC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_DTSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_JJSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_NGSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_NHSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_SLSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_SSSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_WHSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_WSSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_XYSC&#39;</span>)<span style="color:#f92672">.</span>text,
+         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_ZSSC&#39;</span>)<span style="color:#f92672">.</span>text)]
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;BTSC&#39;</span>, <span style="color:#e6db74">&#39;DASC&#39;</span>, <span style="color:#e6db74">&#39;DTSC&#39;</span>, <span style="color:#e6db74">&#39;JJSC&#39;</span>, <span style="color:#e6db74">&#39;NGSC&#39;</span>, <span style="color:#e6db74">&#39;NHSC&#39;</span>, <span style="color:#e6db74">&#39;SLSC&#39;</span>, <span style="color:#e6db74">&#39;SSSC&#39;</span>, <span style="color:#e6db74">&#39;WHSC&#39;</span>, <span style="color:#e6db74">&#39;WSSC&#39;</span>, <span style="color:#e6db74">&#39;XYSC&#39;</span>, <span style="color:#e6db74">&#39;ZSSC&#39;</span>], 
+                  index<span style="color:#f92672">=</span>[time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>, time<span style="color:#f92672">.</span>localtime()) ])
+</code></pre></div><h3 id="open-weather-data">Open Weather Data</h3>
+<p>Suprisely, our government has done <a href="https://opendata.cwb.gov.tw/index">open weahter data API</a> so well, then only thing we just do is to call API!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
+
+resp <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-061?Authorization=&#39;</span> <span style="color:#f92672">+</span> your key <span style="color:#f92672">+</span><span style="color:#e6db74">&#39;&amp;format=JSON&#39;</span>)
+<span style="color:#75715e"># Weather forecast in a week api</span>
+table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>]) ):
+
+    df1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
+    df1[<span style="color:#e6db74">&#39;weather&#39;</span>] <span style="color:#f92672">=</span> df1[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+    df1<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>, <span style="color:#e6db74">&#39;endTime&#39;</span>], inplace <span style="color:#f92672">=</span> True)
+    df1<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;startTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
+
+    df2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
+    df2[<span style="color:#e6db74">&#39;apparent_temperature&#39;</span>] <span style="color:#f92672">=</span> df2[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+    df2<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
+    df2<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
+
+    df3 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">3</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
+    df3[<span style="color:#e6db74">&#39;temperature&#39;</span>] <span style="color:#f92672">=</span> df3[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+    df3<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
+    df3<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
+
+    df4 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">4</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
+    df4[<span style="color:#e6db74">&#39;relative_humidity&#39;</span>] <span style="color:#f92672">=</span> df4[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+    df4<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
+    df4<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
+
+    df5 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">5</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
+    df5[<span style="color:#e6db74">&#39;comfort_index&#39;</span>] <span style="color:#f92672">=</span> df5[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
+    df5<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
+    df5<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
+
+    df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df1, df2, df3, df4, df5], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+    df[<span style="color:#e6db74">&#39;taipei_district&#39;</span>] <span style="color:#f92672">=</span> resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;locationName&#39;</span>]
+    table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([table, df])
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p><img src="/static/images/demo_website.png" alt="Demo Website"></p>
+<p>We use invoice data to classfy 12 sport centers into 3 clusters. For example 1 kind of sport centers is located at business areas, so there are few people during weekends. This is our important feature! All judges agree with this idea. However, we don&rsquo;t have enought gym people number history data to verify our model.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
