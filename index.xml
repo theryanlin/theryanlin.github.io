@@ -12,13 +12,23 @@
     
     
     <item>
-      <title>Sportportal: GYM Number Prediction - 2020 Datathon</title>
-      <link>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      <title>K-means: Quickly Review Data in Datathon</title>
+      <link>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</link>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</guid>
-      <description>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at gogoro with me joined in 2020 Datathon, like a workshop. I am writing to share my steps and the solution!
-Before Coding In the begining, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
+      <guid>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</guid>
+      <description>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.</description>
+    </item>
+    
+    <item>
+      <title>Sportportal: People Numbers Prediction in 2020 Datathon</title>
+      <link>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</guid>
+      <description>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at Gogoro with me joined in 2020 Datathon, like a workshop. I am writing to share my steps and the solution!
+Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
     </item>
     
     <item>

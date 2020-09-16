@@ -5,25 +5,108 @@
         <description>Recent content in Posts on LIN Tzu Chun (Ryan)</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://theryanlin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Sportportal: GYM Number Prediction - 2020 Datathon</title>
-            <link>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</link>
-            <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+            <title>K-means: Quickly Review Data in Datathon</title>
+            <link>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</link>
+            <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/09/sportportal-gym-number-prediction-2020-datathon/</guid>
-            <description>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at gogoro with me joined in 2020 Datathon, like a workshop. I am writing to share my steps and the solution!
-Before Coding In the begining, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
-            <content type="html"><![CDATA[<p>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at <strong>gogoro</strong> with me joined in <a href="https://2020datathon.wixsite.com/hack?fbclid=IwAR2Wq_WmulssiwOFqQ9wh_vRwReLGh2XQmlrWVnMgWBC9lgqX9vnjDD4074">2020 Datathon</a>, like a workshop. I am writing to share my steps and the solution!</p>
-<p><img src="/sportportal_number_in_gym_prediction/team_gogoro.jpeg" alt="Team gogoro"></p>
+            <guid>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</guid>
+            <description>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.</description>
+            <content type="html"><![CDATA[<p>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.</p>
+<h2 id="clustering">Clustering</h2>
+<p>Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.
+The goal of clustering is to make objects more similar in the same group and more different between different groups. There are 4 steps of clustering analysis.</p>
+<h3 id="step-1-data-preparation">Step 1: Data Preparation</h3>
+<p>Every single time when you want to implement machine learning algorithms, you should prepare data for this analysis. According to a question or an issue you are going to solve, you have to choose important features. This is an essential step, but I would not talk this too much today.</p>
+<h3 id="step-2-choose-a-measure-of-similarity">Step 2: Choose a Measure of Similarity</h3>
+<p><strong>Distance</strong><br>
+In the real world, people living in the same areas have some common habits. Take food culture as an example, People living in Korea love to eat spicy food, but in Japan don&rsquo;t. Therefore, in genomics, the distance is a good and easy-understood metric.</p>
+<p>There are 2 common ways to calculate distance:</p>
+<ol>
+<li>Euclidean Distance: the straight-line distance between two points</li>
+<li>Manhattan Distance: the sum of the absolute distances along each axis</li>
+</ol>
+<p><strong>Correlation Coefficient</strong><br>
+This metric is used in statistics to measure how strong a relationship is between two variables.</p>
+<p><strong>Density</strong><br>
+Sometimes, distances can&rsquo;t represent similarities. For instance, 2 groups have different shapes, a circle, and a donut. In this situation, the density would be a good metric to measure similarities!</p>
+<h3 id="step-3-choose-an-algorithm">Step 3: Choose an Algorithm</h3>
+<p><strong>Hierarchical Clustering</strong><br>
+Like a dendrogram, one group is divided into 2 from top-down or 2 clusters are merged as one moves up the hierarchy.</p>
+<p><strong>Partitional Clustering</strong><br>
+Choose n centroids, then the algorithm will divide points into n clusters based on measures of the similarity.</p>
+<h3 id="step-4-evaluation">Step 4: Evaluation</h3>
+<p><strong>Distortion</strong> 
+We compute the sum of squared distances from each point to its assigned center and try to get the minimum. However, the more clusters you group, the smaller distortion you will get. Hence, we need to find a balance and get the smallest distortion by clustering the fewest groups.</p>
+<p><strong>Silhouette</strong> 
+We compare the mean distance (a) within clusters within the mean nearest-cluster distance (b) for each sample. Moreover, we try to get a rate between 1 and -1, so we divide this number with the bigger one between a and b like the following equation: <code>(b - a) / max(a, b)</code>. In a word, we want the highest silhouette.</p>
+<hr>
+<h2 id="hands-on-k-means">Hands-on K-means</h2>
+<p>A partitional clustering also one of unsupervised learning method. Without a specific label, you just give features and k clusters, then K-means will cluster data points together by distances. In the first round, the algorithm gives k centroids and group points into the closest one. In the next round, the algorithm re-calculates centroids of current clusters, so centroid positions will change. Until centroids don&rsquo;t change, our clustering is finished!</p>
+<p>However, the critical point about K-means is how to decide the parameter k, how many clusters you want to use to describe your data. Also, the initial centroid positions have an impact on the clustering result.</p>
+<h3 id="the-question-and-data-preparation">The Question and Data Preparation</h3>
+<p>For our Datathon task, we decided to predict people&rsquo;s numbers in gyms. Gyms located in a business area and a residential area have different customer groups, and this feature has a huge influence on prediction. Thus, we considered invoice data could help us decide types of areas.</p>
+<p>The numbers of invoice meant crowds, so we could define streams of people nearby gyms. Closer people are to gyms, stronger influence streams had on people numbers in gyms. Therefore, we chose 12 Taipei sports centers to be centered, and the numbers of invoice times distance from stores to centroids times and times a function to be our key feature.</p>
+<p><img src="/kmeans_a_good_solution_to_datathon/data_preparation.png" alt="Data Preparation"></p>
+<h3 id="clustering-sportscenters">Clustering Sports Centers</h3>
+<p>After cleaning data, let&rsquo;s apply K-means!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> silhouette_score
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline  
+
+table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>, index_col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gym_name&#39;</span>)
+
+distortion <span style="color:#f92672">=</span> []  
+silhouette <span style="color:#f92672">=</span> []  
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>):
+
+    kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span>i, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(table)
+    distortion<span style="color:#f92672">.</span>append(kmeans<span style="color:#f92672">.</span>inertia_)
+    silhouette<span style="color:#f92672">.</span>append(silhouette_score(table, kmeans<span style="color:#f92672">.</span>labels_))
+    
+fig, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, sharex <span style="color:#f92672">=</span> False, sharey <span style="color:#f92672">=</span> False, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">6</span>))
+
+ax1<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;the number of clustering&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>)
+ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Distortion&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>)
+ax1<span style="color:#f92672">.</span>plot(list(range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>)), distortion, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;blue&#39;</span>, linewidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+
+ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;the number of clustering&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>)
+ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Silhouette&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>)
+ax2<span style="color:#f92672">.</span>plot(list(range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>)), silhouette, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;green&#39;</span>, linewidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+fig<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;kmeans_metrics.png&#39;</span>)
+</code></pre></div><p><img src="/kmeans_a_good_solution_to_datathon/kmeans_metrics.png" alt="kmeans"></p>
+<p>According to the photo, there is no apparent elbow point, while clustering 2 groups makes me get the highest silhouette.</p>
+<h3 id="2-types-of-sports-centers">2 Types of Sports Centers</h3>
+<p>According to the below heatmap, type 1 centers have fewer people used during weekends. After looking into this, we find out that type 1 centers are nearby business buildings, hence nobody goes there during the holidays!</p>
+<p><img src="/kmeans_a_good_solution_to_datathon/types_of_sports_centers.png" alt="types_of_sports_centers"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>K-means is a good way to quickly review your data, however, you should looking into your data in detail and make sure that the clustering result makes sense!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Sportportal: People Numbers Prediction in 2020 Datathon</title>
+            <link>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</link>
+            <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</guid>
+            <description>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at Gogoro with me joined in 2020 Datathon, like a workshop. I am writing to share my steps and the solution!
+Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
+            <content type="html"><![CDATA[<p>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at <strong>Gogoro</strong> with me joined in <a href="https://2020datathon.wixsite.com/hack?fbclid=IwAR2Wq_WmulssiwOFqQ9wh_vRwReLGh2XQmlrWVnMgWBC9lgqX9vnjDD4074">2020 Datathon</a>, like a workshop. I am writing to share my steps and the solution!</p>
+<p><img src="/sportportal_number_in_gym_prediction/team_gogoro.jpeg" alt="Team Gogoro"></p>
 <h2 id="before-coding">Before Coding</h2>
-<p>In the begining, we don&rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits. To avoid this, we provide ideas based on our daily experience!</p>
+<p>In the beginning, we don&rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits. To avoid things most people do, we provide ideas based on our daily experience!</p>
 <h3 id="do-a-small-thing">Do a Small Thing</h3>
-<p>Due to Only 40 hours, 3 people, and limited resources, we should have an acceotable, useful, and executable solution. To be more specific, we just try to solve a small pain point, <strong>Workout</strong>! It&rsquo;s so difficult to do workout regularly, even more difficult to work out in a crowded gym. Sometimes, I just get there and wanna back home directly because there are too many poeple. Apparently, if someone could tell me what time is good for me to go to a gym, I can save time and arrange my schedule more properly. Our target is to build a site, Sportportal, showing real-time and prediction people number in gyms.</p>
+<p>Due to Only 40 hours, 3 people, and limited resources, we should have an acceptable, useful, and executable solution. To be more specific, we just try to solve a small pain point, <strong>Workout</strong>! It&rsquo;s so difficult to do workout regularly, even more, difficult to work out in a crowded gym. Sometimes, I just get there and wanna back home directly because there are too many people. Apparently, if someone could tell me what time is good for me to go to a gym, I can save time and arrange my schedule more properly. Our target is to build a site, Sportportal, showing real-time people numbers in gyms and prediction .</p>
 <h3 id="check-resources">Check Resources</h3>
-<p>In order to do Sportportal, we decide to use weather data to predict people number in a gym. There is 12 sports centers in taipei, roghtly scattered around 12 Taipei district. Also, weather prediction is divied into every single district in Taipei. Weather and willingness about workout seems correlative, so we work in this direction.</p>
+<p>In order to do Sportportal, we decide to use weather data to predict people&rsquo;s numbers in a gym. There are 12 sports centers in Taipei, roughly scattered around 12 Taipei district. Also, weather prediction is divided into every single district in Taipei. Weather and willingness about workout seem correlative, so we work in this direction.</p>
 <p><strong>Data List</strong></p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> weather history data</li>
@@ -32,71 +115,19 @@ Before Coding In the begining, we don&amp;rsquo;t limit our thoughts on data the
 <li><input checked="" disabled="" type="checkbox"> real-time gym people number</li>
 </ul>
 <h2 id="lets-do-coding">Let&rsquo;s Do Coding</h2>
-<p>After you have a good idea, it&rsquo;s time to test your coding ability. Mostly, I feel time is the most scarce resource, so we pick a proper pain point to solve!</p>
+<p>After you have a good idea, it&rsquo;s time to test your coding ability. Mostly, I feel the time is the scarcest resource, so we just need to do MVP (Minimum Viable Product) to show our idea. The below diagram is our data pipeline.</p>
+<p><img src="/sportportal_number_in_gym_prediction/data_pipeline.png" alt="Data Pipeline"></p>
 <h3 id="people-number-in-gym">People Number in GYM</h3>
-<p>We can&rsquo;t find gym people number history data, so we write a crawler to get people number in gyms and restore them. However, since registration in to this Datathon, we only have 7 dyas to collect data. It turns out that we don&rsquo;t have enough labels.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver
-
-driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome(chromedriver)
-driver<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;http://booking.tpsc.sporetrofit.com/Home/LocationPeopleNum&#39;</span>)
-data <span style="color:#f92672">=</span> [(driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_BTSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_DASC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_DTSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_JJSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_NGSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_NHSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_SLSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_SSSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_WHSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_WSSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_XYSC&#39;</span>)<span style="color:#f92672">.</span>text,
-         driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;CurGymPNum_ZSSC&#39;</span>)<span style="color:#f92672">.</span>text)]
-
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;BTSC&#39;</span>, <span style="color:#e6db74">&#39;DASC&#39;</span>, <span style="color:#e6db74">&#39;DTSC&#39;</span>, <span style="color:#e6db74">&#39;JJSC&#39;</span>, <span style="color:#e6db74">&#39;NGSC&#39;</span>, <span style="color:#e6db74">&#39;NHSC&#39;</span>, <span style="color:#e6db74">&#39;SLSC&#39;</span>, <span style="color:#e6db74">&#39;SSSC&#39;</span>, <span style="color:#e6db74">&#39;WHSC&#39;</span>, <span style="color:#e6db74">&#39;WSSC&#39;</span>, <span style="color:#e6db74">&#39;XYSC&#39;</span>, <span style="color:#e6db74">&#39;ZSSC&#39;</span>], 
-                  index<span style="color:#f92672">=</span>[time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %H:%M:%S&#34;</span>, time<span style="color:#f92672">.</span>localtime()) ])
-</code></pre></div><h3 id="open-weather-data">Open Weather Data</h3>
-<p>Suprisely, our government has done <a href="https://opendata.cwb.gov.tw/index">open weahter data API</a> so well, then only thing we just do is to call API!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-
-resp <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-061?Authorization=&#39;</span> <span style="color:#f92672">+</span> your key <span style="color:#f92672">+</span><span style="color:#e6db74">&#39;&amp;format=JSON&#39;</span>)
-<span style="color:#75715e"># Weather forecast in a week api</span>
-table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>]) ):
-
-    df1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
-    df1[<span style="color:#e6db74">&#39;weather&#39;</span>] <span style="color:#f92672">=</span> df1[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
-    df1<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>, <span style="color:#e6db74">&#39;endTime&#39;</span>], inplace <span style="color:#f92672">=</span> True)
-    df1<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;startTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
-
-    df2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">2</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
-    df2[<span style="color:#e6db74">&#39;apparent_temperature&#39;</span>] <span style="color:#f92672">=</span> df2[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
-    df2<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
-    df2<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
-
-    df3 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">3</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
-    df3[<span style="color:#e6db74">&#39;temperature&#39;</span>] <span style="color:#f92672">=</span> df3[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
-    df3<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
-    df3<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
-
-    df4 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">4</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
-    df4[<span style="color:#e6db74">&#39;relative_humidity&#39;</span>] <span style="color:#f92672">=</span> df4[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
-    df4<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
-    df4<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
-
-    df5 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict(resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;weatherElement&#39;</span>][<span style="color:#ae81ff">5</span>][<span style="color:#e6db74">&#39;time&#39;</span>])
-    df5[<span style="color:#e6db74">&#39;comfort_index&#39;</span>] <span style="color:#f92672">=</span> df5[<span style="color:#e6db74">&#39;elementValue&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;value&#39;</span>])
-    df5<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;elementValue&#39;</span>], inplace <span style="color:#f92672">=</span> True)
-    df5<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;dataTime&#39;</span>, inplace <span style="color:#f92672">=</span> True)
-
-    df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df1, df2, df3, df4, df5], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-    df[<span style="color:#e6db74">&#39;taipei_district&#39;</span>] <span style="color:#f92672">=</span> resp<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#39;records&#39;</span>][<span style="color:#e6db74">&#39;locations&#39;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;location&#39;</span>][i][<span style="color:#e6db74">&#39;locationName&#39;</span>]
-    table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([table, df])
-</code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>We can&rsquo;t find gym people number history data, so we write a crawler to get people numbers in gyms and restore them. However, since registration into this Datathon, we only have 7 days to collect data. It turns out that we don&rsquo;t have enough labels.</p>
+<h3 id="open-weather-data">Open Weather Data</h3>
+<p>Suprisely, our government has done <a href="https://opendata.cwb.gov.tw/index">open weahter data API</a> so well including prediction and history data. All things we have to do is to call API!</p>
+<h3 id="invoice-data">Invoice Data</h3>
+<p>Gyms located in a business area and a residential area have different customer groups, and this feature has a huge influence on prediction. Thus, we considered invoice data could help us decide types of areas.</p>
+<p>Moreover, the numbers of invoice meant crowds, so we could define streams of people nearby gyms. Closer people are to gyms, stronger influence streams had on people numbers in gyms. Therefore, we chose 12 Taipei sports centers to be centered, and the numbers of invoice times distance from stores to centroids times and times a function to be our key feature. Check out <a href="https://theryanlin.github.io/posts/2020/09/k-means-a-good-solution-to-datathon/">this</a> to realize more!</p>
+<h2 id="conclusion">Conclusion</h2>
 <p>We use invoice data to classfy 12 sport centers into 3 clusters. For example 1 kind of sport centers is located at business areas, so there are few people during weekends. This is our important feature! All judges agree with this idea. However, we don&rsquo;t have enought gym people number history data to verify our model.</p>
 <p><img src="/sportportal_number_in_gym_prediction/demo.gif" alt="Sport Portal"></p>
-<p>Hackathon is a good way to strengthen your barin muscle, absorb others&rsquo; creative ideas, learn effecitive coding skills. Thus, I am glad to join this with my partners and willing to have more!</p>
+<p>Hackathon is a good way to strengthen your brain muscle, absorb others&rsquo; creative ideas, learn effective coding skills. Thus, I am glad to join this with my partners and willing to have more!</p>
 ]]></content>
         </item>
         
