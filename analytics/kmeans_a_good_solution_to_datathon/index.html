@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken." />
+<meta name="keywords" content=", Data Analytics, Hackathon" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/analytics/kmeans_a_good_solution_to_datathon/" />
+
+
+    <title>
+        
+            K-means: Quickly Review Data in Datathon :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="K-means: Quickly Review Data in Datathon">
+<meta itemprop="description" content="K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.">
+<meta itemprop="datePublished" content="2020-09-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-09-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="864">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="Data Analytics,Hackathon," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="K-means: Quickly Review Data in Datathon"/>
+<meta name="twitter:description" content="K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken."/>
+
+
+
+    <meta property="og:title" content="K-means: Quickly Review Data in Datathon" />
+<meta property="og:description" content="K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/analytics/kmeans_a_good_solution_to_datathon/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2020-09-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-16T00:00:00+00:00" />
+
+
+
+
+
+    <meta property="article:section" content="Data Analytics" />
+
+
+
+    <meta property="article:published_time" content="2020-09-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://theryanlin.github.io/analytics/kmeans_a_good_solution_to_datathon/">K-means: Quickly Review Data in Datathon</a></h2>
+
+            
+
+            
+
+            <div class="post-content">
+                <p>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.</p>
+<h2 id="clustering">Clustering</h2>
+<p>Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.
+The goal of clustering is to make objects more similar in the same group and more different between different groups. There are 4 steps of clustering analysis.</p>
+<h3 id="step-1-data-preparation">Step 1: Data Preparation</h3>
+<p>Every single time when you want to implement machine learning algorithms, you should prepare data for this analysis. According to a question or an issue you are going to solve, you have to choose important features. This is an essential step, but I would not talk this too much today.</p>
+<h3 id="step-2-choose-a-measure-of-similarity">Step 2: Choose a Measure of Similarity</h3>
+<p><strong>Distance</strong><br>
+In the real world, people living in the same areas have some common habits. Take food culture as an example, People living in Korea love to eat spicy food, but in Japan don&rsquo;t. Therefore, in genomics, the distance is a good and easy-understood metric.</p>
+<p>There are 2 common ways to calculate distance:</p>
+<ol>
+<li>Euclidean Distance: the straight-line distance between two points</li>
+<li>Manhattan Distance: the sum of the absolute distances along each axis</li>
+</ol>
+<p><strong>Correlation Coefficient</strong><br>
+This metric is used in statistics to measure how strong a relationship is between two variables.</p>
+<p><strong>Density</strong><br>
+Sometimes, distances can&rsquo;t represent similarities. For instance, 2 groups have different shapes, a circle, and a donut. In this situation, the density would be a good metric to measure similarities!</p>
+<h3 id="step-3-choose-an-algorithm">Step 3: Choose an Algorithm</h3>
+<p><strong>Hierarchical Clustering</strong><br>
+Like a dendrogram, one group is divided into 2 from top-down or 2 clusters are merged as one moves up the hierarchy.</p>
+<p><strong>Partitional Clustering</strong><br>
+Choose n centroids, then the algorithm will divide points into n clusters based on measures of the similarity.</p>
+<h3 id="step-4-evaluation">Step 4: Evaluation</h3>
+<p><strong>Distortion</strong> 
+We compute the sum of squared distances from each point to its assigned center and try to get the minimum. However, the more clusters you group, the smaller distortion you will get. Hence, we need to find a balance and get the smallest distortion by clustering the fewest groups.</p>
+<p><strong>Silhouette</strong> 
+We compare the mean distance (a) within clusters within the mean nearest-cluster distance (b) for each sample. Moreover, we try to get a rate between 1 and -1, so we divide this number with the bigger one between a and b like the following equation: <code>(b - a) / max(a, b)</code>. In a word, we want the highest silhouette.</p>
+<hr>
+<h2 id="hands-on-k-means">Hands-on K-means</h2>
+<p>A partitional clustering also one of unsupervised learning method. Without a specific label, you just give features and k clusters, then K-means will cluster data points together by distances. In the first round, the algorithm gives k centroids and group points into the closest one. In the next round, the algorithm re-calculates centroids of current clusters, so centroid positions will change. Until centroids don&rsquo;t change, our clustering is finished!</p>
+<p>However, the critical point about K-means is how to decide the parameter k, how many clusters you want to use to describe your data. Also, the initial centroid positions have an impact on the clustering result.</p>
+<h3 id="the-question-and-data-preparation">The Question and Data Preparation</h3>
+<p>For our Datathon task, we decided to predict people&rsquo;s numbers in gyms. Gyms located in a business area and a residential area have different customer groups, and this feature has a huge influence on prediction. Thus, we considered invoice data could help us decide types of areas.</p>
+<p>The numbers of invoice meant crowds, so we could define streams of people nearby gyms. Closer people are to gyms, stronger influence streams had on people numbers in gyms. Therefore, we chose 12 Taipei sports centers to be centered, and the numbers of invoice times distance from stores to centroids times and times a function to be our key feature.</p>
+<p><img src="https://theryanlin.github.io/kmeans_a_good_solution_to_datathon/data_preparation.png" alt="Data Preparation"></p>
+<h3 id="clustering-sportscenters">Clustering Sports Centers</h3>
+<p>After cleaning data, let&rsquo;s apply K-means!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> silhouette_score
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline  
+
+table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;data.csv&#39;</span>, index_col<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gym_name&#39;</span>)
+
+distortion <span style="color:#f92672">=</span> []  
+silhouette <span style="color:#f92672">=</span> []  
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>):
+
+    kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span>i, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(table)
+    distortion<span style="color:#f92672">.</span>append(kmeans<span style="color:#f92672">.</span>inertia_)
+    silhouette<span style="color:#f92672">.</span>append(silhouette_score(table, kmeans<span style="color:#f92672">.</span>labels_))
+    
+fig, (ax1, ax2) <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, sharex <span style="color:#f92672">=</span> False, sharey <span style="color:#f92672">=</span> False, figsize <span style="color:#f92672">=</span> (<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">6</span>))
+
+ax1<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;the number of clustering&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>)
+ax1<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Distortion&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>)
+ax1<span style="color:#f92672">.</span>plot(list(range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>)), distortion, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;blue&#39;</span>, linewidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+
+ax2<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;the number of clustering&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>)
+ax2<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Silhouette&#39;</span>, fontsize <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>)
+ax2<span style="color:#f92672">.</span>plot(list(range(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">10</span>)), silhouette, color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;green&#39;</span>, linewidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>)
+fig<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;kmeans_metrics.png&#39;</span>)
+</code></pre></div><p><img src="https://theryanlin.github.io/kmeans_a_good_solution_to_datathon/kmeans_metrics.png" alt="kmeans"></p>
+<p>According to the photo, there is no apparent elbow point, while clustering 2 groups makes me get the highest silhouette.</p>
+<h3 id="2-types-of-sports-centers">2 Types of Sports Centers</h3>
+<p>According to the below heatmap, type 1 centers have fewer people used during weekends. After looking into this, we find out that type 1 centers are nearby business buildings, hence nobody goes there during the holidays!</p>
+<p><img src="https://theryanlin.github.io/kmeans_a_good_solution_to_datathon/types_of_sports_centers.png" alt="types_of_sports_centers"></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>K-means is a good way to quickly review your data, however, you should looking into your data in detail and make sure that the clustering result makes sense!</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/data-analytics/">Data Analytics</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/hackathon/">Hackathon</a></span>
+        
+    </p>
+
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/data-analytics/">Data Analytics</a></span>
+        
+    </p>
+
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analtics on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/categories/analtics/</link>
+    <description>Recent content in Analtics on LIN Tzu Chun (Ryan)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/categories/analtics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>產品數據分析｜產品成長與互動 — 線上健身房 Peloten</title>
+      <link>https://theryanlin.github.io/posts/2020/12/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E7%94%A2%E5%93%81%E6%88%90%E9%95%B7%E8%88%87%E4%BA%92%E5%8B%95-%E7%B7%9A%E4%B8%8A%E5%81%A5%E8%BA%AB%E6%88%BF-peloten/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2020/12/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E7%94%A2%E5%93%81%E6%88%90%E9%95%B7%E8%88%87%E4%BA%92%E5%8B%95-%E7%B7%9A%E4%B8%8A%E5%81%A5%E8%BA%AB%E6%88%BF-peloten/</guid>
+      <description>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框</description>
+    </item>
+    
+    <item>
+      <title>產品數據分析｜建立數據指標體系 — 線上教育平台 Hahow</title>
+      <link>https://theryanlin.github.io/posts/2020/11/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2020/11/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow/</guid>
+      <description>你是不是也跟我一樣？熬夜上完線上課程，學習了許多機器學習的演算法、練習過多個 Kaggle的題目，上傳 Prediction時有過很好的成績，但</description>
+    </item>
+    
+  </channel>
+</rss>

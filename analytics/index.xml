@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analytics on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/analytics/</link>
+    <description>Recent content in Analytics on LIN Tzu Chun (Ryan)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K-means: Quickly Review Data in Datathon</title>
+      <link>https://theryanlin.github.io/analytics/kmeans_a_good_solution_to_datathon/</link>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/analytics/kmeans_a_good_solution_to_datathon/</guid>
+      <description>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
+Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.</description>
+    </item>
+    
+  </channel>
+</rss>

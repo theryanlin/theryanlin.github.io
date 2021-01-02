@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在P" />
+<meta name="keywords" content=", Business Analytics, Work Experience" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/posts/2020/05/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%A4%A7%E5%85%AC%E9%96%8B%E6%AD%A3%E7%A2%BA%E7%9A%84%E5%BF%83%E6%B3%95excel-%E4%B9%9F%E8%83%BD%E5%81%9A%E5%88%86%E6%9E%90/" />
+
+
+    <title>
+        
+            商業分析流程大公開：正確的心法，Excel 也能做分析 :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="商業分析流程大公開：正確的心法，Excel 也能做分析">
+<meta itemprop="description" content="近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在P">
+<meta itemprop="datePublished" content="2020-05-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1860">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="Business Analytics,Work Experience," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="商業分析流程大公開：正確的心法，Excel 也能做分析"/>
+<meta name="twitter:description" content="近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在P"/>
+
+
+
+    <meta property="og:title" content="商業分析流程大公開：正確的心法，Excel 也能做分析" />
+<meta property="og:description" content="近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在P" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/posts/2020/05/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%A4%A7%E5%85%AC%E9%96%8B%E6%AD%A3%E7%A2%BA%E7%9A%84%E5%BF%83%E6%B3%95excel-%E4%B9%9F%E8%83%BD%E5%81%9A%E5%88%86%E6%9E%90/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2020-05-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-07T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Career" />
+
+
+
+    <meta property="article:published_time" content="2020-05-07 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://theryanlin.github.io/posts/2020/05/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%A4%A7%E5%85%AC%E9%96%8B%E6%AD%A3%E7%A2%BA%E7%9A%84%E5%BF%83%E6%B3%95excel-%E4%B9%9F%E8%83%BD%E5%81%9A%E5%88%86%E6%9E%90/">商業分析流程大公開：正確的心法，Excel 也能做分析</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <p>近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在PCB廠當幕僚的經驗，完成專案的方式也和商業分析有些關係，雖然沒有很厲害的預測模型，並且只使用Excel和PPT，我將以此經驗作為例子來說明商業分析的心法！或許也能幫助你回想，自己過去的成果，並且包裝成商業分析的經驗放在履歷中。</p>
+<p><img src="https://cdn-images-1.medium.com/max/3420/1*dFpRpjzRa-qFdQ19NWEtKw.png" alt="商業分析流程。圖／Ryan自製"><em>商業分析流程。圖／Ryan自製</em></p>
+<h2 id="數據只是輔佐商業邏輯更重要">數據只是輔佐，商業邏輯更重要</h2>
+<p>商業分析的主要目的，就是透過數據、客觀事實產生洞見、好的想法，讓公司、團隊產生可執行的行動而越來越好，所以商業分析的成敗其實取決於最後是否可以採取行動和採取行動後的成果，因此進行商業分析時，資料分析是輔助，輔佐你所發現的洞見的證據，增加可信度，就像投籃時，左手只是輔助，但還是很重要的（只用右手真的很難投！）。分析是硬技術，不同的工具能讓你看到不一樣的洞見，更深、更廣、更遠，但此篇主要想分享我對於商業分析的看法，簡而言之，商業分析的目標非常明確，讓公司、團隊往好的方向前進（增加淨利、訂單成長），採取行動，而實際上應該可以分成兩塊來探討，長期資料蒐集與短期資料呈現。</p>
+<h2 id="分析資料前要先有資料">分析資料前，要先有資料</h2>
+<p>沒有米就無法煮飯，沒有資料也沒辦法分析，因此必須蒐集資料，建立資料庫，而資料庫該蒐集什麼資料，初期相當仰賴經驗與該領域的專家，通常都會先蒐集可以回答該領域常見問題的資料，接著清理、分析、儲存，並且不斷的重複討論、蒐集、儲存，不斷補足資料庫豐富度、有用度，在整段流程中，資料收集是最花費時間的，也是一門艱深的學問。舉例而言，過去在PCB廠工作時，公司已經累積20–30年的生產、銷售數據，並且還在不斷優化、增加新的欄位，符合不同時代產品的需求，過往可能以內銷為主，倘若近期要出口到海外市場，則需要增加新的欄位，註明此批貨銷往哪些地區等等，而我的工作即是向相關單位提出需求，獲取所需的資料後加以分析。</p>
+<h2 id="解決問題前要先有問題">解決問題前，要先有問題</h2>
+<p>短期部分則是指針對主管、團隊所提出的問題而去回答，倘若平常有妥善蒐集資料，這時就能有效率地從資料庫萃取資料來用，但若發現目前的資料無法解決問題，則必須回到蒐集、清理的階段，確保有足夠、可信、有用的資料後，進行分析，分析有難也有簡單，透過Excel觀察資料、描述統計分析，也能夠產生很好的見解，將資料解釋成有用的資訊，此時商業分析師需要透過自己的專業或和專家討論產生所謂的洞見，確認這個洞見能解決主管、團隊所提出的問題。</p>
+<h2 id="造個例子老派商業分析">造個例子：老派商業分析</h2>
+<p>有次老闆問我：「Ryan啊，為什麼這些料號會虧損啊？幫我看一下」，通常是個大方向的問題，為了深入了解原因，我把這個問題公式化成：毛利=售價-成本，分別比較「售價」和「成本」，因此我和業務一起比對銷售資料、討論後，認為報價水準和其他客人同等級的產品相當，沒有太大問題，轉而向財務索取成本資料。</p>
+<p>為了有數據佐證，取得資料是相當重要的，就像蒐集七顆龍珠，我取得所需但四散各處的資料，取得後，打開Excel（對，就是Excel，最基本但最強的工具！），將過往此客人在不同廠區全部的料號一起分析，結果發現虧損的料號都是在A廠區製作，在和工廠要求不同料號所走的生產線明細，和產品工程師一起討論，發現這個客人走的生產線，在A廠區的固定成本（機台折舊）和人事成本特別高（每個廠區機台的配置不同、聘請的員工、人員配置也不同，故有此差異），約高出10%，因此我向主管報告，並和負責此客戶的業務、產品工程師、財務討論，決定將此客戶A廠區的料號全部轉走，便開始準備向老闆報告。</p>
+<p>有了好的想法還不夠，能讓受眾接受並採取行動才是最關鍵的一步，此時呈現方式就是與受眾間的橋樑，簡報之前，必須先決定你的受眾、目標和內容，呈現出你的洞見，讓受眾聽懂並且產生行動！因為我老闆在乎得非常簡單，就是獲利，所以才會和我一起檢討虧損的料號，我報告的目標就是讓他能同意進行廠區轉移計畫，而老闆想聽的、和我的訴求的交集，就是「錢」，因此報告主軸就是報告轉移前後帶來的獲利差異和移轉成本，並透過上述的數據、圖表輔佐，最後獲得老闆的同意，並進行移轉計畫，再經歷過幾個月後，這些移轉的料號真的帶來獲利，也為此次的分析專案畫下句號。</p>
+<h2 id="小結">小結</h2>
+<p>我很感謝過去在PCB廠的日子，老闆和主管給我很多機會，讓我能看到公司高層看到的風景，也因為這份工作，讓我更加確定往商業分析發展。回頭想想自己過去用Excel和PPT做的分析與報告，或許沒有使用機器學習模型、困難的統計手法，但套上上述流程，或許都是個可以放在履歷的好例子喔！</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/business-analytics/">Business Analytics</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/work-experience/">Work Experience</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/career/">Career</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1860 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-05-07
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://theryanlin.github.io/posts/2020/05/%E5%8F%A3%E7%BD%A9%E4%B9%8B%E5%A4%96one-forty-%E5%A5%BD%E6%9B%B8%E4%BC%B4%E8%A8%88%E7%95%AB%E5%BB%B6%E7%BA%8C%E5%8F%B0%E7%81%A3%E5%BD%B1%E9%9F%BF%E5%8A%9B/">
+                <span class="button__icon">←</span>
+                <span class="button__text">口罩之外，One Forty 好書伴計畫延續台灣影響力</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://theryanlin.github.io/posts/2020/04/%E7%94%A8-tableau-%E4%BA%92%E5%8B%95%E5%9C%96%E8%A1%A8%E4%BE%86%E7%9C%8B%E5%8F%B0%E7%81%A3%E6%97%85%E9%81%8A%E6%A5%AD%E4%BA%8C%E6%AC%A1%E9%87%8D%E5%89%B5/">
+                <span class="button__text">用 Tableau 互動圖表來看台灣旅遊業二次重創</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>
