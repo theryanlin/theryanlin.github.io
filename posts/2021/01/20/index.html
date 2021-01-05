@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&amp;#39;01&amp;#39;, &amp;#39;John&amp;#39;, 1990-01-01, &amp;#39;M&amp;#39;) Update UPDATE Student Ssex = &amp;#39;F&amp;#39;, Sname = &amp;#39;Alison&amp;#39; WHERE SId = &amp;#39;01&amp;#39; Delete DELETE FROM Student WHERE SId = &amp;#39;01&amp;#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &amp;#39;01&amp;#39; AND Sname = &amp;#39;Alex&amp;#39;; SELECT * FROM Student WHERE SId &amp;lt;&amp;gt; &amp;#39;01&amp;#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &amp;#39; &amp;#39;, Last_Name) AS &amp;#39;Name&amp;#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &amp;#39;A%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;Alex%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%x&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%e%&amp;#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &amp;#39;A%&amp;#39;; IN SELECT * FROM Student WHERE Sname IN (&amp;#39;Alex&amp;#39;, &amp;#39;Bert&amp;#39;); Left Join SELECT Student." />
+<meta name="keywords" content=", SQL, Cheat Sheet, Interview Preparation" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/posts/2021/01/20/" />
+
+
+    <title>
+        
+            SQL Cheat Sheet :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="SQL Cheat Sheet">
+<meta itemprop="description" content="Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&#39;01&#39;, &#39;John&#39;, 1990-01-01, &#39;M&#39;) Update UPDATE Student Ssex = &#39;F&#39;, Sname = &#39;Alison&#39; WHERE SId = &#39;01&#39; Delete DELETE FROM Student WHERE SId = &#39;01&#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &#39;01&#39; AND Sname = &#39;Alex&#39;; SELECT * FROM Student WHERE SId &lt;&gt; &#39;01&#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &#39; &#39;, Last_Name) AS &#39;Name&#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &#39;A%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;Alex%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%x&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%e%&#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &#39;A%&#39;; IN SELECT * FROM Student WHERE Sname IN (&#39;Alex&#39;, &#39;Bert&#39;); Left Join SELECT Student.">
+<meta itemprop="datePublished" content="2021-01-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="288">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="SQL,Cheat Sheet,Interview Preparation," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="SQL Cheat Sheet"/>
+<meta name="twitter:description" content="Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&#39;01&#39;, &#39;John&#39;, 1990-01-01, &#39;M&#39;) Update UPDATE Student Ssex = &#39;F&#39;, Sname = &#39;Alison&#39; WHERE SId = &#39;01&#39; Delete DELETE FROM Student WHERE SId = &#39;01&#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &#39;01&#39; AND Sname = &#39;Alex&#39;; SELECT * FROM Student WHERE SId &lt;&gt; &#39;01&#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &#39; &#39;, Last_Name) AS &#39;Name&#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &#39;A%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;Alex%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%x&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%e%&#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &#39;A%&#39;; IN SELECT * FROM Student WHERE Sname IN (&#39;Alex&#39;, &#39;Bert&#39;); Left Join SELECT Student."/>
+
+
+
+    <meta property="og:title" content="SQL Cheat Sheet" />
+<meta property="og:description" content="Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&#39;01&#39;, &#39;John&#39;, 1990-01-01, &#39;M&#39;) Update UPDATE Student Ssex = &#39;F&#39;, Sname = &#39;Alison&#39; WHERE SId = &#39;01&#39; Delete DELETE FROM Student WHERE SId = &#39;01&#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &#39;01&#39; AND Sname = &#39;Alex&#39;; SELECT * FROM Student WHERE SId &lt;&gt; &#39;01&#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &#39; &#39;, Last_Name) AS &#39;Name&#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &#39;A%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;Alex%&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%x&#39;; SELECT * FROM Student WHERE Sname LIKE &#39;%e%&#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &#39;A%&#39;; IN SELECT * FROM Student WHERE Sname IN (&#39;Alex&#39;, &#39;Bert&#39;); Left Join SELECT Student." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/posts/2021/01/20/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2021-01-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-04T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Analytics" />
+
+
+
+    <meta property="article:published_time" content="2021-01-04 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://theryanlin.github.io/posts/2021/01/20/">SQL Cheat Sheet</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h2 id="insert">Insert</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Student (SId, Sname, Sage, Ssex) 
+<span style="color:#66d9ef">VALUES</span>  (<span style="color:#e6db74">&#39;01&#39;</span>, <span style="color:#e6db74">&#39;John&#39;</span>, <span style="color:#ae81ff">1990</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>, <span style="color:#e6db74">&#39;M&#39;</span>)
+</code></pre></div><h2 id="update">Update</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">UPDATE</span> Student Ssex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;F&#39;</span>, Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Alison&#39;</span> 
+<span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>
+</code></pre></div><h2 id="delete">Delete</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> Student 
+<span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>
+</code></pre></div><h2 id="select">Select</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> SId, Sname <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> SC.SId, Student.Sname <span style="color:#66d9ef">FROM</span> SC, Student <span style="color:#66d9ef">WHERE</span> SC.SId <span style="color:#f92672">=</span> Student.SId;
+</code></pre></div><h2 id="where">Where</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span> <span style="color:#66d9ef">AND</span> Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Alex&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;01&#39;</span>;
+</code></pre></div><h2 id="order-by-sort">Order By (Sort)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> SId <span style="color:#66d9ef">ASC</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> SId <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h2 id="concatenate-columns">Concatenate Columns</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> CONCAT(First_Name, <span style="color:#e6db74">&#39; &#39;</span>, Last_Name) <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#39;Name&#39;</span> <span style="color:#66d9ef">FROM</span> Student;
+</code></pre></div><h2 id="select-distinct-rows">Select Distinct Rows</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> SId <span style="color:#66d9ef">FROM</span> Student;
+</code></pre></div><h2 id="between-select-range">Between (Select Range)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> SC <span style="color:#66d9ef">WHERE</span> score <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">60</span> <span style="color:#66d9ef">AND</span> <span style="color:#ae81ff">90</span>;
+</code></pre></div><h2 id="like-searching">Like (Searching)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;Alex%&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%x&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%e%&#39;</span>;
+</code></pre></div><h2 id="not-like">Not Like</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span>;
+</code></pre></div><h2 id="in">IN</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;Alex&#39;</span>, <span style="color:#e6db74">&#39;Bert&#39;</span>);
+</code></pre></div><h2 id="left-join">Left Join</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Student.Sname, SC.Cname, SC.score
+<span style="color:#66d9ef">FROM</span> Student
+<span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> SC
+<span style="color:#66d9ef">ON</span> SC.SId <span style="color:#f92672">=</span> Student.SId
+</code></pre></div><h2 id="aggregate-functions">Aggregate Functions</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(SId) <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MAX</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MIN</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SUM</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+</code></pre></div><h2 id="partition-by">Partition By</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> age, <span style="color:#66d9ef">count</span>(age) OVER (PARTITION <span style="color:#66d9ef">BY</span> age) <span style="color:#66d9ef">AS</span> number <span style="color:#66d9ef">FROM</span> users
+</code></pre></div><h2 id="group-by">Group By</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex;
+<span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span> <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex;
+<span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">count</span>(SId) <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span>;
+</code></pre></div><h2 id="cast">Cast</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#ae81ff">25</span>.<span style="color:#ae81ff">65</span> <span style="color:#66d9ef">AS</span> int);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#ae81ff">25</span> <span style="color:#66d9ef">AS</span> char(<span style="color:#ae81ff">4</span>));
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#e6db74">&#39;2017-08-25&#39;</span> <span style="color:#66d9ef">AS</span> datetime);
+</code></pre></div><h2 id="convert">Convert</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(int, <span style="color:#ae81ff">25</span>.<span style="color:#ae81ff">65</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(char(<span style="color:#ae81ff">4</span>), <span style="color:#ae81ff">25</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(datetime, <span style="color:#e6db74">&#39;2017-08-25&#39;</span>);
+</code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/sql/">SQL</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/cheat-sheet/">Cheat Sheet</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/interview-preparation/">Interview Preparation</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/analytics/">Analytics</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        288 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-01-04
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://theryanlin.github.io/posts/2021/01/21/">
+                <span class="button__text">AB Testing Cheat Sheet</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框" />
+<meta name="keywords" content=", Product Analytics, Learning Notes" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/posts/2020/12/18/" />
+
+
+    <title>
+        
+            產品數據分析｜產品成長與互動 — 線上健身房 Peloten :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="產品數據分析｜產品成長與互動 — 線上健身房 Peloten">
+<meta itemprop="description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框">
+<meta itemprop="datePublished" content="2020-12-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-12-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2317">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="Product Analytics,Learning Notes," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="產品數據分析｜產品成長與互動 — 線上健身房 Peloten"/>
+<meta name="twitter:description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框"/>
+
+
+
+    <meta property="og:title" content="產品數據分析｜產品成長與互動 — 線上健身房 Peloten" />
+<meta property="og:description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/posts/2020/12/18/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2020-12-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-13T00:00:00+00:00" />
+
+
+
+
+
+    <meta property="article:section" content="Analtics" />
+
+
+
+    <meta property="article:published_time" content="2020-12-13 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://theryanlin.github.io/posts/2020/12/18/">產品數據分析｜產品成長與互動 — 線上健身房 Peloten</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <p>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《<a href="https://hahow.in/courses/5e689828e612310028027876/main?mts_s=ap&amp;mts_m=ha&amp;oasId=5def54e5be44100022b369ef">產品數據分析 — 打造網路產品的決策引擎</a>》，學習商業應用上的脈絡與框架，作業以 Case Study 的方式為主，利用所學的分析方法、產品策略、思考架構，回答產品個案的相關問題。</p>
+<p>上一篇<a href="https://theryanlin.medium.com/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90-%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow-9a7c5ed2af2c">文章</a>，我們以 Hahow 為例，學習建立數據指標體系，有了明確目標後，接著可以透過指標、框架，來審視產品的成長與互動狀況。</p>
+<p>以下文章會分享課程學習的心得、作業，在本次的作業 — 擬定 Peloten 的產品成長策略之前，先讓我們一起認識這個疫情之下、股價大漲的市場新寵兒吧！</p>
+<p><img src="https://cdn-images-1.medium.com/max/3824/1*Q_gvDOQrj3LeZNPRnPcdsQ.jpeg" alt="Workouts Streamed Live & On-Demand。圖／Peloton"><em>Workouts Streamed Live &amp; On-Demand。圖／<a href="https://www.onepeloton.com/">Peloton</a></em></p>
+<h2 id="線上健身房--peloten">線上健身房 — Peloten</h2>
+<p>Peloten 是全球最大互動式健身平台，主要服務分為軟體和硬體，提供線上直播或串流健身教學影片，同時銷售硬體健身器材，如：飛輪機、跑步機，致力於協助顧客打造居家健身的環境。</p>
+<p>訂閱費用每月 $12.99 元美金，用戶可以透過手機、平板、電視，或是自家販售飛輪車及跑步機，隨選直播或預錄的健身課程，比價目前健身房教練課程，更為划算。</p>
+<p>硬體健身器材則能幫助使用者收集數據，協助長期追蹤、改善運動習慣與強度，新款飛輪車 Peloton Bike+售價 2,495 美元，包含一個連網的高解析度螢幕，目標藉由軟硬體整合提供更好的運動體驗！</p>
+<p>上述看起來很美好，但該怎麼從使用者人數的變化，推斷 Peloten 的成長潛力呢？我們可以利用<em>成長指標 Quick Ratio</em>。</p>
+<h3 id="衡量產品的成長潛力">衡量產品的成長潛力</h3>
+<p>成長指標的定義很好理解：新增用者加上被喚醒的沈睡使用者（退訂再訂閱）大於流失的使用者，就是成長，根據 Peloten 的財報顯示，2020 年共有 110 萬的訂閱用戶，2019 年約為 55 萬人，2020 年的年留存率約為 0.9 ，因此我們可以計算成長的人數 55 萬人除以流失人數 11 萬人，成長指標為驚人的 5！</p>
+<p>想要更了解 Peloten 的驚人成長，我們可以試著以成長指標為Ｙ軸，留存率為Ｘ軸，畫出下面的圖表，可以發現 Peloten 位於圖表的極右上方，客戶留存率高且成長快速，處於「可持續成長的產品」象限中。</p>
+<p>我們可以將同類型的產品擺在此張表（未按比例），就可以清楚的看出產品間的優劣，或是一般會以成長指標 1.5 ，留存率 0.4 為分界，判斷產品的成長狀況！</p>
+<p><img src="https://cdn-images-1.medium.com/max/3428/1*8pCQj7Hof7vMRQB6L7qWtQ.png" alt="Sustainable Product Growth。圖／Ryan"><em>Sustainable Product Growth。圖／Ryan</em></p>
+<p>而且我認為 Peloten可以持續成長！Peloten 的使用者人數，可以簡單劃分為 <em>Market Size X Peloten Market Share</em>，目前居家健身的整體市場不斷成長，首先 Peloten 服務的使用者多為歐美地區人士，尚有許多地區未開發，還有很大的成長潛力，其次，提供的運動課程為飛輪、慢跑、瑜珈，仍有許多運動項目可以納入課程，此舉將可以吸引更多使用者，且目前尚未出現強大的競爭對手分食市場，<em>Market Size 成長、Market Share 維持甚至成長</em>，因此短期內 Peloten 仍可以持續增長！</p>
+<h3 id="免費試用peloten-就是要圈粉">免費試用，Peloten 就是要圈粉</h3>
+<p>Peloton 如此高的成長率，可以歸功於獲客策略！主要鎖定高端、利基的市場，提供服務給目前運動需求未獲得滿足的消費者，如：因疫情無法上教練課、住在郊區難尋健身房的用戶，為他們提供線上的教練課程！比肩高價位的教練課程，因此 Peloton 以完整服務體驗來吸引新使用者，讓使用者藉由免費試用 90 天，有信心使用者體驗後就會愛不釋手！</p>
+<p>甚至，為了替使用者帶來更好的體驗，Peloton 同時也發展硬體設備，如：飛輪機、跑步機，雖然說服用戶購買飛輪機、跑步機的門檻較高，需要投入的資源也多，甚至近期 Peloton 提供免費試用 30 天，再讓員工親自指導使用以及售後服務，確保消費者可以確實體驗到產品的好，目的就是增加用戶的忠誠度、黏著度，讓你再第 31 天能夠刷卡付費！買了飛輪機就不得不運動了！</p>
+<p>免費體驗的主要目的是為了確保消費者能以正確的方式體驗到 Aha Moment，圈粉用戶，使消費者成為忠誠使用者！</p>
+<h3 id="啊這就是我要的產品">啊！這就是我要的產品</h3>
+<p>Aha Moment 指的就是讓使用者體會到產品的價值、好處，成為真正的粉絲留下來了的那一刻，Peloton 的 Aha moment 就是讓消費者是找到一堂想上的課後，完整的體驗完這堂課程，運動結束後的當下！如果體驗良好，使用者將會預約下一堂課，逐漸讓消費者養成運動的習慣，排下運動規劃，讓用戶離不開這個產品。</p>
+<p>畫出了下面的互動流程後，我們也可以根據各個不同的關鍵流程，來看看轉換階段以及可能影響轉換的因素，例如，點開課程頁面後，卻不註冊課程，原因可能是找不到喜歡的老師、時間上無法配合等等，透過分析，將可以不斷最佳化互動流程，讓使用者可以更快速地、不斷地體驗到 Aha Moment！</p>
+<p><img src="https://cdn-images-1.medium.com/max/3716/1*D1oS_mWm0ap7hJ5-TCdCjQ.png" alt="Aha Moment。圖／Ryan"><em>Aha Moment。圖／Ryan</em></p>
+<h3 id="運用-google-框架提升互動體驗">運用 Google 框架提升互動體驗</h3>
+<p><a href="https://www.dtelepathy.com/ux-metrics/#intro">HEART</a> 框架是有 Google User Experience 團隊提出，來衡量軟體產品的使用者體驗與 UX，分為五個面向，滿意度、參與度、採用度、留存度、任務成功度，並由左至右分三個部分定義，目標（面向的目標）、信號（收集數據的方式）、指標（將數據轉換成需要監督的指標），我們以 Peloton 為例製作以下圖表。</p>
+<p><img src="https://cdn-images-1.medium.com/max/3940/1*qfT6CE9EleqBAI-GHgLdPg.png" alt="HEART Framework。圖／Ryan"><em>HEART Framework。圖／Ryan</em></p>
+<p>其中我認為此部分的指標和上一章我們討論的「策略指標」、「北極星指標」有部份重疊，但層級卻有所差異。前者代表的是產品的使用者體驗，後者則是公司發展的面向，若一間公司開發的是軟體產品，則指標會重複，但所代表的意義還是有所差異。</p>
+<p>最後，我們可以將互動流程與 HEART 框架結合起來，在每個節點用這五個面向去衡量！舉例來說：課程註冊的階段，我們可以監督頁面停留時間、註冊完成率（Engagement）、頁面跳出率（Task Sucess）等等，來持續改善流程，增加用戶黏著度！</p>
+<h2 id="小結">小結</h2>
+<p>產品的成長與互動策略，需要藉著用戶的真實反映與回饋，不斷的優化與改善，因此需要透過框架和指標來幫助我們量化用戶行為。歸納統總上述步驟可以分為：</p>
+<ol>
+<li>成長指標：透過成長指標可以了解目前產品的成長狀況、或與其他同類型產品比較，以擬定應對策略。</li>
+<li>互動流程：畫出用戶體驗 Aha Moment 的步驟，並確保用戶能體驗到 Aha Moment，體會產品價值。</li>
+<li>HEART 框架：多面向衡量產品互動體驗，透過指標監督並不斷改善。</li>
+</ol>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/product-analytics/">Product Analytics</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/learning-notes/">Learning Notes</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/analtics/">Analtics</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2317 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-12-13
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://theryanlin.github.io/posts/2020/12/19/">
+                <span class="button__icon">←</span>
+                <span class="button__text">藏有米其林美食、定義新加坡庶民文化 —「小販中心」獲選聯合國非物質文化遺產</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://theryanlin.github.io/posts/2020/12/17/">
+                <span class="button__text">馬祖超商密度全台最高！離島比你想的便利？</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

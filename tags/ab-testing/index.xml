@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AB Testing on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/tags/ab-testing/</link>
+    <description>Recent content in AB Testing on LIN Tzu Chun (Ryan)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/tags/ab-testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AB Testing Cheat Sheet</title>
+      <link>https://theryanlin.github.io/posts/2021/01/21/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2021/01/21/</guid>
+      <description>Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp;amp; Can&amp;rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&amp;rsquo;t Do:</description>
+    </item>
+    
+    <item>
+      <title>產品數據分析｜快速理解 A/B Testing ，提升產品決策品質</title>
+      <link>https://theryanlin.github.io/posts/2021/01/22/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2021/01/22/</guid>
+      <description>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框</description>
+    </item>
+    
+  </channel>
+</rss>

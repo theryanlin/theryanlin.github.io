@@ -5,15 +5,289 @@
         <description>Recent content in Posts on LIN Tzu Chun (Ryan)</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 31 Dec 2020 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://theryanlin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>SQL Cheat Sheet</title>
+            <link>https://theryanlin.github.io/posts/2021/01/20/</link>
+            <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://theryanlin.github.io/posts/2021/01/20/</guid>
+            <description>Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&amp;#39;01&amp;#39;, &amp;#39;John&amp;#39;, 1990-01-01, &amp;#39;M&amp;#39;) Update UPDATE Student Ssex = &amp;#39;F&amp;#39;, Sname = &amp;#39;Alison&amp;#39; WHERE SId = &amp;#39;01&amp;#39; Delete DELETE FROM Student WHERE SId = &amp;#39;01&amp;#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &amp;#39;01&amp;#39; AND Sname = &amp;#39;Alex&amp;#39;; SELECT * FROM Student WHERE SId &amp;lt;&amp;gt; &amp;#39;01&amp;#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &amp;#39; &amp;#39;, Last_Name) AS &amp;#39;Name&amp;#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &amp;#39;A%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;Alex%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%x&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%e%&amp;#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &amp;#39;A%&amp;#39;; IN SELECT * FROM Student WHERE Sname IN (&amp;#39;Alex&amp;#39;, &amp;#39;Bert&amp;#39;); Left Join SELECT Student.</description>
+            <content type="html"><![CDATA[<h2 id="insert">Insert</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> Student (SId, Sname, Sage, Ssex) 
+<span style="color:#66d9ef">VALUES</span>  (<span style="color:#e6db74">&#39;01&#39;</span>, <span style="color:#e6db74">&#39;John&#39;</span>, <span style="color:#ae81ff">1990</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span><span style="color:#f92672">-</span><span style="color:#ae81ff">01</span>, <span style="color:#e6db74">&#39;M&#39;</span>)
+</code></pre></div><h2 id="update">Update</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">UPDATE</span> Student Ssex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;F&#39;</span>, Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Alison&#39;</span> 
+<span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>
+</code></pre></div><h2 id="delete">Delete</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> Student 
+<span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span>
+</code></pre></div><h2 id="select">Select</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> SId, Sname <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> SC.SId, Student.Sname <span style="color:#66d9ef">FROM</span> SC, Student <span style="color:#66d9ef">WHERE</span> SC.SId <span style="color:#f92672">=</span> Student.SId;
+</code></pre></div><h2 id="where">Where</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;01&#39;</span> <span style="color:#66d9ef">AND</span> Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Alex&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> SId <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;01&#39;</span>;
+</code></pre></div><h2 id="order-by-sort">Order By (Sort)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> SId <span style="color:#66d9ef">ASC</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> SId <span style="color:#66d9ef">DESC</span>;
+</code></pre></div><h2 id="concatenate-columns">Concatenate Columns</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> CONCAT(First_Name, <span style="color:#e6db74">&#39; &#39;</span>, Last_Name) <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#39;Name&#39;</span> <span style="color:#66d9ef">FROM</span> Student;
+</code></pre></div><h2 id="select-distinct-rows">Select Distinct Rows</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> SId <span style="color:#66d9ef">FROM</span> Student;
+</code></pre></div><h2 id="between-select-range">Between (Select Range)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> SC <span style="color:#66d9ef">WHERE</span> score <span style="color:#66d9ef">BETWEEN</span> <span style="color:#ae81ff">60</span> <span style="color:#66d9ef">AND</span> <span style="color:#ae81ff">90</span>;
+</code></pre></div><h2 id="like-searching">Like (Searching)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;Alex%&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%x&#39;</span>;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;%e%&#39;</span>;
+</code></pre></div><h2 id="not-like">Not Like</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span>;
+</code></pre></div><h2 id="in">IN</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">IN</span> (<span style="color:#e6db74">&#39;Alex&#39;</span>, <span style="color:#e6db74">&#39;Bert&#39;</span>);
+</code></pre></div><h2 id="left-join">Left Join</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Student.Sname, SC.Cname, SC.score
+<span style="color:#66d9ef">FROM</span> Student
+<span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> SC
+<span style="color:#66d9ef">ON</span> SC.SId <span style="color:#f92672">=</span> Student.SId
+</code></pre></div><h2 id="aggregate-functions">Aggregate Functions</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(SId) <span style="color:#66d9ef">FROM</span> Student;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MAX</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MIN</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">SUM</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(score) <span style="color:#66d9ef">FROM</span> SC;
+</code></pre></div><h2 id="partition-by">Partition By</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> age, <span style="color:#66d9ef">count</span>(age) OVER (PARTITION <span style="color:#66d9ef">BY</span> age) <span style="color:#66d9ef">AS</span> number <span style="color:#66d9ef">FROM</span> users
+</code></pre></div><h2 id="group-by">Group By</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex;
+<span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;A%&#39;</span> <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex;
+<span style="color:#66d9ef">SELECT</span> Ssex, <span style="color:#66d9ef">count</span>(SId) <span style="color:#66d9ef">FROM</span> Student <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Ssex <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">count</span>(SId) <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">2</span>;
+</code></pre></div><h2 id="cast">Cast</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#ae81ff">25</span>.<span style="color:#ae81ff">65</span> <span style="color:#66d9ef">AS</span> int);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#ae81ff">25</span> <span style="color:#66d9ef">AS</span> char(<span style="color:#ae81ff">4</span>));
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CAST</span>(<span style="color:#e6db74">&#39;2017-08-25&#39;</span> <span style="color:#66d9ef">AS</span> datetime);
+</code></pre></div><h2 id="convert">Convert</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(int, <span style="color:#ae81ff">25</span>.<span style="color:#ae81ff">65</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(char(<span style="color:#ae81ff">4</span>), <span style="color:#ae81ff">25</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">CONVERT</span>(datetime, <span style="color:#e6db74">&#39;2017-08-25&#39;</span>);
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>AB Testing Cheat Sheet</title>
+            <link>https://theryanlin.github.io/posts/2021/01/21/</link>
+            <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://theryanlin.github.io/posts/2021/01/21/</guid>
+            <description>Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp;amp; Can&amp;rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&amp;rsquo;t Do:</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.</p>
+<p>The existing version is the control group and another one with changes is the experimental group.</p>
+<h3 id="can-do--cant-do">Can Do &amp; Can&rsquo;t Do</h3>
+<p><strong>Can Do:</strong></p>
+<ul>
+<li>just for a small change at one time</li>
+<li>makes changes gradually</li>
+</ul>
+<p><strong>Can&rsquo;t Do:</strong></p>
+<ul>
+<li>mostly for shot-term evaluations, not for long-term</li>
+<li>not for brand-new products or features</li>
+</ul>
+<h3 id="pros-and-cons">Pros and cons</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>helps draw causal conclusions</li>
+<li>makes changes gradually</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>takes time when don&rsquo;t have enough traffic</li>
+<li>doesn’t solve usability problems</li>
+</ul>
+<h2 id="experiment-design">Experiment Design</h2>
+<h3 id="metric-choice">Metric Choice</h3>
+<p><strong>Invariant metrics</strong> are those which remain invariant throughout the experiment. One could expect a similar distribution of such metrics both on control and experiment side. In the given experiment, the invariant metrics are as follows.</p>
+<p><strong>Evaluation metrics</strong> are chosen since there is a possibility of different distribution between experiment and control groups as a function of experiment. Each evaluation metric is associated with a minimum difference that must be observed for consideration in the decision to launch the experiment. The ultimate goal is to minimize student frustration and use the limited coaching resources most efficiently. With this in mind, the following conditions must be satisfied.</p>
+<h3 id="metric-measurement">Metric Measurement</h3>
+<p><strong>Sensitivity</strong> is an ability that metrics are sensitive enough to capture the changes we care about.</p>
+<p><strong>Robustness</strong> is an ability that metrics are steady enough to not capture the changes we don&rsquo;t care about.</p>
+<p>To measure sensitivity and robustness we can:</p>
+<ul>
+<li><strong>A/A test</strong>: Both control and experiment groups are exposed to the same version, then metrics should be similar in 2 group if they are robust enough.</li>
+<li><strong>Retrospective analysis:</strong> Depands on the history data, then we can analyze and evaluate robustness</li>
+</ul>
+<h3 id="choice-of-experimental-unit-and-population">Choice of Experimental Unit and Population</h3>
+<p><strong>Experimental unit</strong> is the minimul unit to define which user or which event is assigned to the control and experiment group. It is an unique identifier like a user id, a cookie, or event id. When we choose an experimental unit, we should consider 3 import things:</p>
+<ul>
+<li><strong>User consistency</strong>: we have to recognize different users, making users have consistent experience throughout.</li>
+<li><strong>Ethical considerations</strong>: Some ethical considerations are risk, benefit and privacy. For example: discriminatory pricing would make users uncomfortable.</li>
+<li><strong>Variability of metric</strong>: The choice of unit of diversion can greatly impact the variability of a metric.</li>
+</ul>
+<p><strong>Population</strong> is the people we are trying to implement an experiment on.</p>
+<h3 id="hypothesis"><strong>Hypothesis</strong></h3>
+<p><strong>Null Hypothesis</strong> is that this approach might not make a significant change and might not be effective in your expectation.</p>
+<p><strong>Alternative Hypothesis</strong> is that this might meet your expectation.</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Positive</th>
+<th align="left">Negative</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">H1 (True)</td>
+<td align="left">True Positive (TP)</td>
+<td align="left">True Negative (TN) Type II Error</td>
+<td align="left">Sensitivity</td>
+</tr>
+<tr>
+<td align="left">H0 (False)</td>
+<td align="left">False Positive (FP) Type I Error</td>
+<td align="left">False Nagetive (FN)</td>
+<td align="left">Speciicity</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Precision</td>
+<td align="left"></td>
+<td align="left">Accurary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="confidence-intervals">Confidence Intervals</h3>
+<p><strong>Confidence Interval</strong> is a range of values we are fairly sure our true value lies in. A 95% confidence interval is a range of values that you can be 95% certain contains the true mean of the population.</p>
+<p><strong>Z-Score</strong> tells you how many standard deviations from the mean your score is. Assuming a normal distribution, your z score would be: <code>z = (x – μ) / (σ / √n)</code></p>
+<p><img src="/21/Confidence_Interval.jpg" alt="Confidence_Interval"></p>
+<p><a href="https://www.notion.so/bd517aa514bd4da989c17d5c36478149">Z-Score for Various Confidence Levels</a></p>
+<h3 id="α--β">α &amp; β</h3>
+<p><strong>Significance Level, α</strong>, is the probability of rejecting the null hypothesis when it is true (Type I Error). For example, a significance level of 0.05 indicates a 5% risk of concluding that a difference exists when there is no actual difference.</p>
+<p><strong>Statistical Power, 1 - β</strong>, is the probability of a hypothesis test of finding an effect if there is an effect to be found. β refers to the probability of Type II error in a statistical hypothesis test.</p>
+<p><img src="/21/Type_I_Error__Type_II_Error.jpg" alt="Type_I_Error__Type_II_Error.jpg"></p>
+<h3 id="minimum-detectable-effect">Minimum Detectable Effect</h3>
+<p><strong>Minimum Detectable Effect, MDE</strong> represents the relative minimum improvement over the baseline that you&rsquo;re willing to detect in an experiment, to a certain degree of statistical significance. The lower MDE, the more traffic you need to detect minor changes, hence the more money you have to spend on driving that traffic. There’s no such thing as an ideal MDE, so take money, time, and other business risks into consideration when defining MDE.</p>
+<h3 id="number-of-samples">Number of Samples</h3>
+<p>Page views required for each evaluation metric is calculated separately using the online calculator. The alpha vaue of 0.05 and beta value of 0.2 is used in all the cases.</p>
+<h3 id="duration-of-the-experiment">Duration of the experiment</h3>
+<p><strong>The duration of the experiment</strong> is related to the fraction of the traffic you wish to send through the experiment. If you need a total of 20K users for your experiment and sending 500 users per group per day, you would need to run the experiment for 20 days. However, once the number of users meets your requirement, you should stop the experiment to avoid more users.</p>
+<h2 id="experiment-analysis">Experiment Analysis</h2>
+<h3 id="sanity-check">Sanity Check</h3>
+<p><strong>Sanity Check</strong> is primarily for the invariant metrics. For invariant metrics we expect equal diversion into the experiment and control group. We will test this at the 95% confidence interval.</p>
+<p><a href="https://www.notion.so/aa60b18785ce42e093def8d0b3fd3187">Sanity Check Table</a></p>
+<h3 id="result-analysis"><strong>Result Analysis</strong></h3>
+<p>95% Confidence interval for the difference between the experiment and control group for evaluation metrics. The result is satistically significant only when the 95% confidence interval does not include zero.</p>
+<p><a href="https://www.notion.so/ed8c7b1d80f64ab5b5b57deb3a804cb8">Result Analysis</a></p>
+<h3 id="sign-tests"><strong>Sign Tests</strong></h3>
+<p>Sign test is just an another method to validate the result obtained above. The sensitivity of sign test is lower than that of the above test.</p>
+<p><a href="https://www.notion.so/5ec41ce539b9412bb8f33d814728858b">Sign Tests</a></p>
+<h2 id="summary">Summary</h2>
+<h3 id="quick-tips">Quick Tips</h3>
+<ol>
+<li>Only conduct one test at a time</li>
+<li>Test one variable at a time</li>
+<li>Test minor change</li>
+<li>Split your sample group randomly</li>
+<li>Test 2 versions at the same time</li>
+<li>Decide what you want to test</li>
+<li>Decide on the necessary significance level before testing</li>
+</ol>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://github.com/shubhamlal11/Udacity-AB-Testing-Final-Project">Udacity AB Testing Final Project On GitHub</a></li>
+<li><a href="https://medium.com/@fin790729/a-b-test%E7%B8%BD%E6%95%B4%E7%90%86-da05939f375f">Udacity AB Testing Notes On Medium</a></li>
+<li><a href="https://cdn2.hubspot.net/hubfs/53/AB_Test_Kit_Intro_ToAB_Testing_for_Marketing_optimization.pdf?submissionGuid=fd1d599e-33c5-451e-88f5-b042a98d2a07">Hubspot Guideline</a></li>
+<li><a href="https://highscope.ch.ntu.edu.tw/wordpress/?p=73236">Type I Error &amp; Type II Error</a></li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>產品數據分析｜快速理解 A/B Testing ，提升產品決策品質</title>
+            <link>https://theryanlin.github.io/posts/2021/01/22/</link>
+            <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://theryanlin.github.io/posts/2021/01/22/</guid>
+            <description>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框</description>
+            <content type="html"><![CDATA[<p>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《<a href="https://hahow.in/courses/5e689828e612310028027876/main?mts_s=ap&amp;mts_m=ha&amp;oasId=5def54e5be44100022b369ef">產品數據分析 — 打造網路產品的決策引擎</a>》，學習商業應用上的脈絡與框架，作業以 Case Study 的方式為主，利用所學的分析方法、產品策略、思考架構，回答產品個案的相關問題。</p>
+<p>學習建立數據指標體系、擬定產品策略後，在日常工作上，指標會浮動、變化，為了理解指標變動的因果關係，許多團隊都會利用 A/B Testing 來實驗、驗證，這個方法也已經非常廣泛的應用在軟體開發、迭代的過程。</p>
+<h2 id="0-簡介">0. 簡介</h2>
+<p>我根據 Hahow 的課程內容和 Udacity 上的熱門課程《<a href="https://www.udacity.com/course/ab-testing--ud257">A/B Testing by Google</a>》整理成文章，並以 Udacity Final Project 為主要討論。</p>
+<h3 id="ab-testing">A/B Testing</h3>
+<p>A/B Testing 的概念其實不難，就是提供使用者兩個版本的產品，經由統計假說檢定，來判斷實驗結果是否會如我們的預期，特定變數會產生顯著差異，例如：增加註冊步驟，能夠降低註冊率。</p>
+<p>雖然實際執行上有很多的 Tips 和嚴謹的細節控制，但這篇主要以方法論為主，我將流程簡化成以下幾個步驟，分享 A/B Testing 的基本概念、流程，不著墨在統計與理論上，並製作了 <a href="https://theryanlin.github.io/posts/2021/01/21">Cheat Sheet</a>，讓大家在面試前能夠快速複習！</p>
+<h2 id="1-商業洞察好的問題決定實驗方向">1. 商業洞察，好的問題決定實驗方向</h2>
+<p>身爲商業分析師、或依數據做決策的職位，我們必須同時了解業務需求和資料應用，左手用 Python 處理資料，右手撰寫投影簡報。日常工作幾乎都和資料為伍，整理資料、了解資料外，也需要利用商業邏輯來詮釋資料。從資料發現 Insight 後、產品改動決策前，我們可以依賴 A/B Testing 的結果，作為決策參考之一。</p>
+<p>舉例而言，Udacity 認為一週上線課程時間太短的學生容易取消課程，因此他們想在學生點選 <code>start free trial</code> 按鈕後、註冊前，多一個步驟，詢問學生預期的每週學習時間，如果學生回答的時數低於五小時，則建議他不要註冊，直接免費觀看課程影片（不會拿到證書），希望能減少早期取消率。</p>
+<p>足夠的領域知識，加上好的觀察和現象，能夠幫助我們提出對的問題，也能帶領產品往好的方向發展。</p>
+<h2 id="2-實驗設計讓你實驗不做白工">2. 實驗設計，讓你實驗不做白工</h2>
+<p>實驗設計是 A/B Testing 最重要的環節，會直接影響實驗成敗和決策品質，選定指標尤其重要！</p>
+<h3 id="選定指標">選定指標</h3>
+<p>根據我們的商業假說：詢問學生預期的每週學習時間可以降低學生註冊率。接著需要選擇合適的指標來進行實驗，指標分為兩種：</p>
+<p><strong>實驗指標（Evaluation）</strong>：真正衡量此次實驗所造成的影響，實驗指標的選定和商業假說和目標有關，一次實驗只能有一個實驗指標，確保實驗邏輯能夠驗證因果關係。</p>
+<p>例如：註冊率</p>
+<p><strong>控制指標（Invariant）</strong>：用來做驗證實驗，不應該在實驗組和控制組之間發生變化，否則代表實驗不正確。</p>
+<p>例如：進入網頁的 cookie 數量、點選 <code>start free trial</code> 的 cookie 數量、點擊率</p>
+<p>指標的選定必須經過嚴格的考量，我們可以藉由一些測試來判斷指標是否堪用。</p>
+<h3 id="指標測試">指標測試</h3>
+<p>選定的指標需要具備靈敏度與穩定度，舉例來說，我們會想了解解析度和影片串流延遲的影響，希望指標能夠根據不同解析度產生變化，但不希望指標在不同影片間隨意變動！</p>
+<p><strong>靈敏度（Sensitivity）</strong>：實驗變數能有效看出差異，對同群人來說，解析度改變會影響串流延遲。
+<strong>穩健性（Robustness）</strong>：控制指標不會對指標造成隨意變動，對不同群人來說，類似的影片不會影響串流延遲。</p>
+<p>我們可以藉由 A/A Testing 來衡量靈敏度和穩健性，確保實驗在改動前，指標在不同群體間具有代表性。</p>
+<p><strong>A/A Testing</strong>：和 A/B Testing 的差異在於，平分流量到控制組、實驗組，判斷相同體驗之間的是否沒有差異。</p>
+<h3 id="分組與抽樣">分組與抽樣</h3>
+<p>實驗通常只會針對特定的一小群人進行，因此需要找出符合我們假說的目標群體，選擇恰當的分組方式和抽樣方法。</p>
+<p><strong>分組方式</strong>：常見的分組方式可以依據人口統計資料 Demographic、市場類型（包含國家、市場規模）、平台、用戶行為進行分群。
+<strong>抽樣方法</strong>：樣本單位（劃分的最小粒度）可以是 Cookie、User ID、Device ID，依照不同的需求，使用不同的單位，進行抽樣。</p>
+<p>好的分組和抽樣方式可以確保隨機性與獨立性，避免實驗產生偏剖。此實驗以 Cookie 為主，因為註冊前無法得知使用者的 User ID！</p>
+<h3 id="統計檢定">統計檢定</h3>
+<p>建立商業假說後，我們在這個步驟將其轉換成統計假說，設立虛無假設（H0） 與對立假設（H1）。</p>
+<p><strong>虛無假設（Null Hypothesis）</strong>：這個改動不會有效地減少課程註冊率。<br>
+<strong>對立假設（Alternative Hypothesis）</strong>：這個改動會有效地減少課程註冊率。</p>
+<p>並且準備下列要素，以此計算實驗所需樣本數量。</p>
+<ol>
+<li>原始轉換率（Baseline Conversion Rate）：20.625%</li>
+<li>最小改善程度（Minimum Detectable Effect, MDE）：1%</li>
+<li>顯著水準（Significant Level, α）：5%</li>
+<li>檢定力（Power, 1-β）：80%</li>
+</ol>
+<h3 id="樣本數量">樣本數量</h3>
+<p>可以利用這個<a href="https://www.evanmiller.org/ab-testing/">工具</a>將上述數值輸入，即可取得樣本數量為 25,835 註冊人數／每組，而實驗分為控制組和實驗組，因此總共需要 51,670 註冊人數。</p>
+<p><img src="https://cdn-images-1.medium.com/max/3336/1*OKXr1fm_TtrvqeLBvGQLUg.png" alt="Sizing。圖／Ryan"><em>Sizing。圖／Ryan</em></p>
+<h2 id="3-實驗進行">3. 實驗進行</h2>
+<p>計算所需要的樣本數後，要將流量平均分配在一定的時間單位內，實驗時長通常為一至兩週，且在實驗期間內，要考慮週期性或是其他因素，例如，國定假日可能導致流量較高，避免實驗期間環境和實驗設計時的考量有衝突，影響準確性。</p>
+<p>實驗進行中，應進行監測，以免技術錯誤或其他技術問題，造成偏誤，同時，當達到實驗所需的樣本數後，應該隨即結束實驗，切勿因為結果尚未達到顯著性，而繼續實驗，因以實驗的設計為主，實驗時間拉長，可能造成<strong>顯著性陷阱（增加樣本數能夠同時降低 α、β）</strong>。</p>
+<h2 id="4-結果分析">4. 結果分析</h2>
+<p>實驗結束後，切勿沒有計算統計檢定，只看最終數字變化（控制組的註冊數量少於實驗組），就妄下決定！很有可能實驗組只是「隨機」出現你想看到的結果，因此我們首先要做完整性測試（Sanity Check），確保我們的實驗設置和進行都是正確的，然後再來分析結果並給出結論與建議。</p>
+<h3 id="sanity-check">Sanity Check</h3>
+<p>控制組和實驗組會在點選 “start free trial”，才會面對不同的頁面，因此在此之前的數據應該保持一致，控制指標在兩組間不隨意變動。未通過 Sanity Check 代表實驗不正確，不需要繼續分析後續結果，應回頭檢視實驗步驟，找出錯誤環節。</p>
+<p><img src="https://cdn-images-1.medium.com/max/2920/1*ZtoB9rw62fU8j1IuXP3JzA.png" alt="Sanity Check Table。圖／Ryan"><em>Sanity Check Table。圖／Ryan</em></p>
+<h3 id="實驗顯著性">實驗顯著性</h3>
+<p>計算實驗變數在兩組間是否有顯著差異，顯著水準需要小於 α、檢定力大於（1-β），同時考慮絕對值與分佈，信賴區間越窄越好。</p>
+<p>增加詢問學生預期的每週學習時間後（實驗組），在學生註冊課程的場景中，實驗組相較控制組降低了 2.1% 的完成註冊率，達到統計上的顯著性！</p>
+<p><img src="https://cdn-images-1.medium.com/max/2428/1*ROIfYu5X4C3aHcz-VJvsew.png" alt="Significant Level。圖／Ryan"><em>Significant Level。圖／Ryan</em></p>
+<h2 id="5-後續行動">5. 後續行動</h2>
+<p>實驗是為了幫助我們做決定，但是實驗的顯著性跟是否要將改動上線其實是兩件事，畢竟仍有許多更動造成的結果是不可量化的。</p>
+<p>上述實驗雖然降低了學生的註冊率，但不一定可以有效減少早期取消率，或是有其他成本的考量、也可能產生使用者反感、忽略辛普森悖論等等的，需要做後續更多的實驗、或是釐清使用者行為等，才能決定是否要上線。</p>
+<p>上述提供的資料和實驗僅是為了說明，實際上 Udacity Final Project 有更多的問題、實驗的設置，如果大家有興趣的話，非常建議可以把這堂線上課程上完，如果內容有誤，也請大家留言幫忙勘誤！</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>藏有米其林美食、定義新加坡庶民文化 —「小販中心」獲選聯合國非物質文化遺產</title>
-            <link>https://theryanlin.github.io/posts/2020/12/%E8%97%8F%E6%9C%89%E7%B1%B3%E5%85%B6%E6%9E%97%E7%BE%8E%E9%A3%9F%E5%AE%9A%E7%BE%A9%E6%96%B0%E5%8A%A0%E5%9D%A1%E5%BA%B6%E6%B0%91%E6%96%87%E5%8C%96-%E5%B0%8F%E8%B2%A9%E4%B8%AD%E5%BF%83%E7%8D%B2%E9%81%B8%E8%81%AF%E5%90%88%E5%9C%8B%E9%9D%9E%E7%89%A9%E8%B3%AA%E6%96%87%E5%8C%96%E9%81%BA%E7%94%A2/</link>
+            <link>https://theryanlin.github.io/posts/2020/12/19/</link>
             <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/12/%E8%97%8F%E6%9C%89%E7%B1%B3%E5%85%B6%E6%9E%97%E7%BE%8E%E9%A3%9F%E5%AE%9A%E7%BE%A9%E6%96%B0%E5%8A%A0%E5%9D%A1%E5%BA%B6%E6%B0%91%E6%96%87%E5%8C%96-%E5%B0%8F%E8%B2%A9%E4%B8%AD%E5%BF%83%E7%8D%B2%E9%81%B8%E8%81%AF%E5%90%88%E5%9C%8B%E9%9D%9E%E7%89%A9%E8%B3%AA%E6%96%87%E5%8C%96%E9%81%BA%E7%94%A2/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/12/19/</guid>
             <description>💡 文章同步刊於《換日線》！ 還記得電影《瘋狂亞洲富豪》裡，主角們大嗑各式美食的新加坡小販中心（Hawker Centre）嗎？藉由星國政府多年的</description>
             <content type="html"><![CDATA[<p>💡 <strong><em>文章同步刊於《<a href="https://crossing.cw.com.tw/article/14333">換日線</a>》！</em></strong></p>
 <p>還記得電影《<strong>瘋狂亞洲富豪</strong>》裡，主角們大嗑各式美食的新加坡小販中心（<a href="https://en.wikipedia.org/wiki/Hawker_centre">Hawker Centre</a>）嗎？藉由星國政府多年的努力、加上民眾的支持，這個獨特的新加坡地景終於在今（2020）年 12 月，獲選為聯合國教科文組織（UNESCO）的「<strong>非物質文化遺產</strong>」。在 2020 年的年底達成這項成就，無疑是為經歷肺炎衝擊的造成經濟衰退的新加坡送上一份耶誕禮物，凝聚國民的國家認同感與自信心！</p>
@@ -40,10 +314,10 @@
         
         <item>
             <title>產品數據分析｜產品成長與互動 — 線上健身房 Peloten</title>
-            <link>https://theryanlin.github.io/posts/2020/12/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E7%94%A2%E5%93%81%E6%88%90%E9%95%B7%E8%88%87%E4%BA%92%E5%8B%95-%E7%B7%9A%E4%B8%8A%E5%81%A5%E8%BA%AB%E6%88%BF-peloten/</link>
+            <link>https://theryanlin.github.io/posts/2020/12/18/</link>
             <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/12/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E7%94%A2%E5%93%81%E6%88%90%E9%95%B7%E8%88%87%E4%BA%92%E5%8B%95-%E7%B7%9A%E4%B8%8A%E5%81%A5%E8%BA%AB%E6%88%BF-peloten/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/12/18/</guid>
             <description>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框</description>
             <content type="html"><![CDATA[<p>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《<a href="https://hahow.in/courses/5e689828e612310028027876/main?mts_s=ap&amp;mts_m=ha&amp;oasId=5def54e5be44100022b369ef">產品數據分析 — 打造網路產品的決策引擎</a>》，學習商業應用上的脈絡與框架，作業以 Case Study 的方式為主，利用所學的分析方法、產品策略、思考架構，回答產品個案的相關問題。</p>
 <p>上一篇<a href="https://theryanlin.medium.com/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90-%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow-9a7c5ed2af2c">文章</a>，我們以 Hahow 為例，學習建立數據指標體系，有了明確目標後，接著可以透過指標、框架，來審視產品的成長與互動狀況。</p>
@@ -85,10 +359,10 @@
         
         <item>
             <title>馬祖超商密度全台最高！離島比你想的便利？</title>
-            <link>https://theryanlin.github.io/posts/2020/12/%E9%A6%AC%E7%A5%96%E8%B6%85%E5%95%86%E5%AF%86%E5%BA%A6%E5%85%A8%E5%8F%B0%E6%9C%80%E9%AB%98%E9%9B%A2%E5%B3%B6%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E4%BE%BF%E5%88%A9/</link>
+            <link>https://theryanlin.github.io/posts/2020/12/17/</link>
             <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/12/%E9%A6%AC%E7%A5%96%E8%B6%85%E5%95%86%E5%AF%86%E5%BA%A6%E5%85%A8%E5%8F%B0%E6%9C%80%E9%AB%98%E9%9B%A2%E5%B3%B6%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E4%BE%BF%E5%88%A9/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/12/17/</guid>
             <description>「便利商店」的高密度卻是歸因於離島上的不便利！ 台灣境內的離島，諸如金門、馬祖、綠島，都與本島相異，呈現出不同的風貌，成為國旅的熱門景點，因為</description>
             <content type="html"><![CDATA[<p>「便利商店」的高密度卻是歸因於離島上的不便利！</p>
 <p>台灣境內的離島，諸如金門、馬祖、綠島，都與本島相異，呈現出不同的風貌，成為國旅的熱門景點，因為計畫出國留學，打算在離境前將台灣的美好烙印在腦海中，年初大選前走訪了金門後，驚艷於迥異日常生活的的戰地風光與保存良好閩南聚落地景，於是近期也展開了我的第二座離島之旅—馬祖。</p>
@@ -111,10 +385,10 @@
         
         <item>
             <title>產品數據分析｜建立數據指標體系 — 線上教育平台 Hahow</title>
-            <link>https://theryanlin.github.io/posts/2020/11/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow/</link>
+            <link>https://theryanlin.github.io/posts/2020/11/16/</link>
             <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/11/%E7%94%A2%E5%93%81%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%BB%BA%E7%AB%8B%E6%95%B8%E6%93%9A%E6%8C%87%E6%A8%99%E9%AB%94%E7%B3%BB-%E7%B7%9A%E4%B8%8A%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0-hahow/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/11/16/</guid>
             <description>你是不是也跟我一樣？熬夜上完線上課程，學習了許多機器學習的演算法、練習過多個 Kaggle的題目，上傳 Prediction時有過很好的成績，但</description>
             <content type="html"><![CDATA[<p>你是不是也跟我一樣？熬夜上完線上課程，學習了許多機器學習的演算法、練習過多個 Kaggle的題目，上傳 Prediction時有過很好的成績，但在利用機器學習解決實際工作上的問題時，要解釋模型的成效給 PM或 Sales時、商業上的應用、執行上卻無法得心應手。</p>
 <p>在 Business Domain Knowledge 和實際應用跟平常練習程式、分析間有 Gap，因此我最近在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 —《<a href="https://hahow.in/courses/5e689828e612310028027876/main?mts_s=ap&amp;mts_m=ha&amp;oasId=5def54e5be44100022b369ef">產品數據分析 — 打造網路產品的決策引擎</a>》，學習商業應用上的脈絡與框架，作業以 Case Study的方式為主，利用所學的分析方法、產品策略、思考架構，回答產品個案的相關問題。</p>
@@ -167,10 +441,10 @@
         
         <item>
             <title>讀後心得｜無聲：無法出聲的受害學生，需要一次聲音磅礴的奇蹟！</title>
-            <link>https://theryanlin.github.io/posts/2020/10/%E8%AE%80%E5%BE%8C%E5%BF%83%E5%BE%97%E7%84%A1%E8%81%B2%E7%84%A1%E6%B3%95%E5%87%BA%E8%81%B2%E7%9A%84%E5%8F%97%E5%AE%B3%E5%AD%B8%E7%94%9F%E9%9C%80%E8%A6%81%E4%B8%80%E6%AC%A1%E8%81%B2%E9%9F%B3%E7%A3%85%E7%A4%B4%E7%9A%84%E5%A5%87%E8%B9%9F/</link>
+            <link>https://theryanlin.github.io/posts/2020/10/15/</link>
             <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/10/%E8%AE%80%E5%BE%8C%E5%BF%83%E5%BE%97%E7%84%A1%E8%81%B2%E7%84%A1%E6%B3%95%E5%87%BA%E8%81%B2%E7%9A%84%E5%8F%97%E5%AE%B3%E5%AD%B8%E7%94%9F%E9%9C%80%E8%A6%81%E4%B8%80%E6%AC%A1%E8%81%B2%E9%9F%B3%E7%A3%85%E7%A4%B4%E7%9A%84%E5%A5%87%E8%B9%9F/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/10/15/</guid>
             <description>《無聲》改編自國立台南大學附屬啟聰學校2011年的性侵害事件，根據調查從2004年開始到2011年所發生的性侵害與性騷擾事件，高達駭人聽聞的</description>
             <content type="html"><![CDATA[<p>《無聲》改編自國立台南大學附屬啟聰學校2011年的性侵害事件，根據調查從2004年開始到2011年所發生的性侵害與性騷擾事件，高達駭人聽聞的164件、被害人多達92位，年紀最小的甚至只有小學二年級！</p>
 <p>電影上映後，我回過頭去查當初的新聞報導，卻很難找到相關資料，多半都是人本基金會的相關整理，當初失職的教師仍有多數尚在教育界服務，但被侵害的學生或許走上完全不同的道路，或有終生難以撫平的創傷。</p>
@@ -207,10 +481,10 @@
         
         <item>
             <title>黑客松都是大神？身為 Business Analyst，為什麼你要參加Hackathon？</title>
-            <link>https://theryanlin.github.io/posts/2020/09/%E9%BB%91%E5%AE%A2%E6%9D%BE%E9%83%BD%E6%98%AF%E5%A4%A7%E7%A5%9E%E8%BA%AB%E7%82%BA-business-analyst%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E8%A6%81%E5%8F%83%E5%8A%A0hackathon/</link>
+            <link>https://theryanlin.github.io/posts/2020/09/14/</link>
             <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/09/%E9%BB%91%E5%AE%A2%E6%9D%BE%E9%83%BD%E6%98%AF%E5%A4%A7%E7%A5%9E%E8%BA%AB%E7%82%BA-business-analyst%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E8%A6%81%E5%8F%83%E5%8A%A0hackathon/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/09/14/</guid>
             <description>黑客松Hackathon的概念是讓hacker在48 小時內像極限馬拉松一樣，燃燒自己的頭腦與體力，想出一個好的題目並利用code demo出來</description>
             <content type="html"><![CDATA[<p>黑客松Hackathon的概念是讓hacker在48 小時內像極限馬拉松一樣，燃燒自己的頭腦與體力，想出一個好的題目並利用code demo出來。而後衍生出了許許多多各式的競賽主題，如：Datathon (Data + Hackathon)、Eduathon (Education + Hackathon)。從去年二月開始轉換跑道後，我參與過多次 Hackathon，有得過獎、也曾在初賽被刷掉，但每次的經驗都讓我開闊眼界、成長不少，成為Business Analyst後，更是讓我確認Hackathon是個很棒的練功房！甚至還有機會賺錢？因此我想分享我認為你要參加Hackathon的原因，尤其是想轉換跑道或是剛學習資料科學的你。</p>
 <p><img src="https://cdn-images-1.medium.com/max/2600/1*69fnmFmZCqutDgSAgIVc8Q.png" alt="2019 Open Data Contest Silver Prize。圖／Ryan"><em>2019 Open Data Contest Silver Prize。圖／Ryan</em></p>
@@ -239,10 +513,10 @@
         
         <item>
             <title>K-means: Quickly Review Data in Datathon</title>
-            <link>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</link>
+            <link>https://theryanlin.github.io/posts/2020/09/13/</link>
             <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/09/k-means-quickly-review-data-in-datathon/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/09/13/</guid>
             <description>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.
 Clustering Clustering is the most common task in a real-life situation, for example, an e-commerce company usually divides customers into different groups and give them customized campaigns. Also, a factory group the same functional machines to be back up in order to maintain the high yield-rate when one machine is broken.</description>
             <content type="html"><![CDATA[<p>K-means clustering is a widely used and easy-applied algorithm! In this article, I would quickly review clustering methods and show how I used this during the Datathon.</p>
@@ -322,10 +596,10 @@ fig<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;
         
         <item>
             <title>Sportportal: People Numbers Prediction in 2020 Datathon</title>
-            <link>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</link>
+            <link>https://theryanlin.github.io/posts/2020/09/12/</link>
             <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/09/sportportal-people-numbers-prediction-in-2020-datathon/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/09/12/</guid>
             <description>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at Gogoro with me joined in 2020 Datathon, like a workshop. I am writing to share my steps and the solution!
 Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data the host provides, then we come up with so many ideas. That&amp;rsquo;s to say, the host provides invoice data, weather data, and internet posts, therefore people no doubt do analysis on the relationship between weather and consumption habits.</description>
             <content type="html"><![CDATA[<p>I always grab any chance to get hands-on experience also try to solve a real problem. Recently, my 2 ex-colleagues at <strong>Gogoro</strong> with me joined in <a href="https://2020datathon.wixsite.com/hack?fbclid=IwAR2Wq_WmulssiwOFqQ9wh_vRwReLGh2XQmlrWVnMgWBC9lgqX9vnjDD4074">2020 Datathon</a>, like a workshop. I am writing to share my steps and the solution!</p>
@@ -362,10 +636,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>派遣員工被當免洗還是職涯跳板？我從正職到派遣的經驗分享</title>
-            <link>https://theryanlin.github.io/posts/2020/08/%E6%B4%BE%E9%81%A3%E5%93%A1%E5%B7%A5%E8%A2%AB%E7%95%B6%E5%85%8D%E6%B4%97%E9%82%84%E6%98%AF%E8%81%B7%E6%B6%AF%E8%B7%B3%E6%9D%BF%E6%88%91%E5%BE%9E%E6%AD%A3%E8%81%B7%E5%88%B0%E6%B4%BE%E9%81%A3%E7%9A%84%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/</link>
+            <link>https://theryanlin.github.io/posts/2020/08/11/</link>
             <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/08/%E6%B4%BE%E9%81%A3%E5%93%A1%E5%B7%A5%E8%A2%AB%E7%95%B6%E5%85%8D%E6%B4%97%E9%82%84%E6%98%AF%E8%81%B7%E6%B6%AF%E8%B7%B3%E6%9D%BF%E6%88%91%E5%BE%9E%E6%AD%A3%E8%81%B7%E5%88%B0%E6%B4%BE%E9%81%A3%E7%9A%84%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/08/11/</guid>
             <description>這到底是不是這個賣身契！ 近期我從一份正職離職，接受了派遣至一家外商銀行的offer，擔任Business Analyst。做出決定的過程相當不</description>
             <content type="html"><![CDATA[<p>這到底是不是這個賣身契！</p>
 <p>近期我從一份正職離職，接受了派遣至一家外商銀行的offer，擔任Business Analyst。做出決定的過程相當不容易，尤其在疫情衝擊的當下，競爭更激烈、職缺卻更稀少的求職市場對新鮮人、出社會不久的求職者更是不容易，因此想撰寫這篇文章，給可能正在擔憂和26歲左右的你。</p>
@@ -414,10 +688,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>讀後心得┃普立茲記者：擲地有聲的不只是報導，更是身為記者的份量</title>
-            <link>https://theryanlin.github.io/posts/2020/06/%E8%AE%80%E5%BE%8C%E5%BF%83%E5%BE%97%E6%99%AE%E7%AB%8B%E8%8C%B2%E8%A8%98%E8%80%85%E6%93%B2%E5%9C%B0%E6%9C%89%E8%81%B2%E7%9A%84%E4%B8%8D%E5%8F%AA%E6%98%AF%E5%A0%B1%E5%B0%8E%E6%9B%B4%E6%98%AF%E8%BA%AB%E7%82%BA%E8%A8%98%E8%80%85%E7%9A%84%E4%BB%BD%E9%87%8F/</link>
+            <link>https://theryanlin.github.io/posts/2020/06/10/</link>
             <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/06/%E8%AE%80%E5%BE%8C%E5%BF%83%E5%BE%97%E6%99%AE%E7%AB%8B%E8%8C%B2%E8%A8%98%E8%80%85%E6%93%B2%E5%9C%B0%E6%9C%89%E8%81%B2%E7%9A%84%E4%B8%8D%E5%8F%AA%E6%98%AF%E5%A0%B1%E5%B0%8E%E6%9B%B4%E6%98%AF%E8%BA%AB%E7%82%BA%E8%A8%98%E8%80%85%E7%9A%84%E4%BB%BD%E9%87%8F/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/06/10/</guid>
             <description>我非常喜歡看歷史事件改編的電影，或是電影中表現出當代大事件的影響，像阿甘正傳這類型的電影正是我的最愛。《雪地裡的真相》又或譯為充滿諷刺的片名</description>
             <content type="html"><![CDATA[<p>我非常喜歡看歷史事件改編的電影，或是電影中表現出當代大事件的影響，像阿甘正傳這類型的電影正是我的最愛。《雪地裡的真相》又或譯為充滿諷刺的片名《普立茲記者》，重現1930年代的歷史，一段嚴肅又可能在現代重演的悲劇 — 烏克蘭大饑荒，那時記者赴死揭陋了被掩蓋的真相，而我們何其有幸，能夠以電影的形式閱讀這則事件！</p>
 <!-- raw HTML omitted -->
@@ -455,10 +729,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>家樂福併購頂好、Jasons加速超市通路電商化？</title>
-            <link>https://theryanlin.github.io/posts/2020/06/%E5%AE%B6%E6%A8%82%E7%A6%8F%E4%BD%B5%E8%B3%BC%E9%A0%82%E5%A5%BDjasons%E5%8A%A0%E9%80%9F%E8%B6%85%E5%B8%82%E9%80%9A%E8%B7%AF%E9%9B%BB%E5%95%86%E5%8C%96/</link>
+            <link>https://theryanlin.github.io/posts/2020/06/9/</link>
             <pubDate>Mon, 29 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/06/%E5%AE%B6%E6%A8%82%E7%A6%8F%E4%BD%B5%E8%B3%BC%E9%A0%82%E5%A5%BDjasons%E5%8A%A0%E9%80%9F%E8%B6%85%E5%B8%82%E9%80%9A%E8%B7%AF%E9%9B%BB%E5%95%86%E5%8C%96/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/06/9/</guid>
             <description>💡 文章同步刊於《數位時代》！ 家樂福在6/2宣布收購頂好超市，佔據更大新聞版面，聲明如下： &amp;hellip;家樂福集團與Dairy Farm集團已</description>
             <content type="html"><![CDATA[<p>💡 <strong><em>文章同步刊於《<a href="https://www.bnext.com.tw/article/58039/jasons-carrefour-wellcome">數位時代</a>》！</em></strong></p>
 <p>家樂福在6/2宣布收購頂好超市，佔據更大新聞版面，聲明如下：</p>
@@ -490,10 +764,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>傳產、新創、博弈，再到外商，不同類型公司的資料分析</title>
-            <link>https://theryanlin.github.io/posts/2020/06/%E5%82%B3%E7%94%A2%E6%96%B0%E5%89%B5%E5%8D%9A%E5%BC%88%E5%86%8D%E5%88%B0%E5%A4%96%E5%95%86%E4%B8%8D%E5%90%8C%E9%A1%9E%E5%9E%8B%E5%85%AC%E5%8F%B8%E7%9A%84%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90/</link>
+            <link>https://theryanlin.github.io/posts/2020/06/8/</link>
             <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/06/%E5%82%B3%E7%94%A2%E6%96%B0%E5%89%B5%E5%8D%9A%E5%BC%88%E5%86%8D%E5%88%B0%E5%A4%96%E5%95%86%E4%B8%8D%E5%90%8C%E9%A1%9E%E5%9E%8B%E5%85%AC%E5%8F%B8%E7%9A%84%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/06/8/</guid>
             <description>自學後半路出家，成為了商業分析師，從被數十家公司拒絕（面試血淚史ＱＱ），到現在有幸能夠在某家外商銀行工作，一路走路相當不易，除了辛苦，也有了</description>
             <content type="html"><![CDATA[<p>自學後半路出家，成為了商業分析師，從被數十家公司拒絕（<a href="https://www.ptt.cc/bbs/Tech_Job/M.1574166786.A.EF5.html">面試血淚史</a>ＱＱ），到現在有幸能夠在某家外商銀行工作，一路走路相當不易，除了辛苦，也有了新的體會。「商業分析」聽起來很潮，門檻也不像軟體工程師這麼高，加上媒體的推波助瀾，讓數據分析成為報章雜誌上所崇拜的顯學，越來越多人申請 MSBA（包含我ＱＱ）、學習 Python 謀求轉職等等，但商業分析真的適合自己嗎？你想像的分析真的是所謂的分析嗎？以下是我的真實經驗，不同的四家公司的資料分析工作。</p>
 <h2 id="缺乏資料整合的製造業">缺乏資料整合的製造業</h2>
@@ -540,10 +814,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>捨棄YouBike 2.0，為什麼新北市選擇無樁式共享自行車系統呢？</title>
-            <link>https://theryanlin.github.io/posts/2020/06/%E6%8D%A8%E6%A3%84youbike-2.0%E7%82%BA%E4%BB%80%E9%BA%BC%E6%96%B0%E5%8C%97%E5%B8%82%E9%81%B8%E6%93%87%E7%84%A1%E6%A8%81%E5%BC%8F%E5%85%B1%E4%BA%AB%E8%87%AA%E8%A1%8C%E8%BB%8A%E7%B3%BB%E7%B5%B1%E5%91%A2/</link>
+            <link>https://theryanlin.github.io/posts/2020/06/7/</link>
             <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/06/%E6%8D%A8%E6%A3%84youbike-2.0%E7%82%BA%E4%BB%80%E9%BA%BC%E6%96%B0%E5%8C%97%E5%B8%82%E9%81%B8%E6%93%87%E7%84%A1%E6%A8%81%E5%BC%8F%E5%85%B1%E4%BA%AB%E8%87%AA%E8%A1%8C%E8%BB%8A%E7%B3%BB%E7%B5%B1%E5%91%A2/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/06/7/</guid>
             <description>💡 文章同步刊於《數位時代》！ 共享單車在中國曾經掀起浪潮，無樁式成就了共享的自由，隨時可以租借，隨處可以歸還，但前陣子obike在台灣造成的混</description>
             <content type="html"><![CDATA[<p>💡 <strong><em>文章同步刊於《<a href="https://www.bnext.com.tw/article/58405/youbike-20">數位時代</a>》！</em></strong></p>
 <p>共享單車在中國曾經掀起浪潮，無樁式成就了共享的自由，隨時可以租借，隨處可以歸還，但前陣子obike在台灣造成的混亂，仍讓許多人不敢恭維，於是本土的YouBike再次綻放其優點，固定的樁位避免了街道上或躺或斜的單車災難、專為台灣人設計的悠遊卡付費方式，都讓大眾頻繁回頭再次使用。2018年底時，台北市府重新招標，並打算將共享自行車服務升級為電助車，再次由YouBike承辦，但為什麼新北市府面對2021年即將到期的合約，並不打算升級為YouBike 2.0，而是改以過去爭議較多的無樁式取代呢？</p>
@@ -569,10 +843,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>電商面試分享：Pinkoi 行銷數據分析師</title>
-            <link>https://theryanlin.github.io/posts/2020/06/%E9%9B%BB%E5%95%86%E9%9D%A2%E8%A9%A6%E5%88%86%E4%BA%ABpinkoi-%E8%A1%8C%E9%8A%B7%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%B8%AB/</link>
+            <link>https://theryanlin.github.io/posts/2020/06/6/</link>
             <pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/06/%E9%9B%BB%E5%95%86%E9%9D%A2%E8%A9%A6%E5%88%86%E4%BA%ABpinkoi-%E8%A1%8C%E9%8A%B7%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%B8%AB/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/06/6/</guid>
             <description>在去年10月左右，努力從機械領域轉職到商業分析、資料科學領域，和去年相比，最近面試的公司規模明顯比較大，對我個人而言也是一種肯定。其中，我面</description>
             <content type="html"><![CDATA[<p>在去年10月左右，努力從機械領域轉職到商業分析、資料科學領域，和去年相比，最近面試的公司規模明顯比較大，對我個人而言也是一種肯定。其中，我面試了一家電商公司，不論是HR的專業度、公司發展、職務內容都非常的棒，因此在此紀錄本次面試 Pinkoi 的 Marketing Data Analyst 的心得與過程，同時也分享給大家，希望對大家有幫助。</p>
 <p>[Pinkoi 工作機會]</p>
@@ -611,10 +885,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>口罩之外，One Forty 好書伴計畫延續台灣影響力</title>
-            <link>https://theryanlin.github.io/posts/2020/05/%E5%8F%A3%E7%BD%A9%E4%B9%8B%E5%A4%96one-forty-%E5%A5%BD%E6%9B%B8%E4%BC%B4%E8%A8%88%E7%95%AB%E5%BB%B6%E7%BA%8C%E5%8F%B0%E7%81%A3%E5%BD%B1%E9%9F%BF%E5%8A%9B/</link>
+            <link>https://theryanlin.github.io/posts/2020/05/5/</link>
             <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/05/%E5%8F%A3%E7%BD%A9%E4%B9%8B%E5%A4%96one-forty-%E5%A5%BD%E6%9B%B8%E4%BC%B4%E8%A8%88%E7%95%AB%E5%BB%B6%E7%BA%8C%E5%8F%B0%E7%81%A3%E5%BD%B1%E9%9F%BF%E5%8A%9B/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/05/5/</guid>
             <description>我永遠不會忘記那趟獨自前往印尼的旅行，跪向冒著屢屢煙灰的火山祈福、漫步在穆斯林國家中的佛教浮屠，也因為喜歡東南亞的文化、熱情與生命力，回到台</description>
             <content type="html"><![CDATA[<p>我永遠不會忘記那趟獨自前往印尼的旅行，跪向冒著屢屢煙灰的火山祈福、漫步在穆斯林國家中的佛教浮屠，也因為喜歡東南亞的文化、熱情與生命力，回到台灣後，今年初，我加入了 One-Forty 擔任募款志工，希望能貢獻些許力量，同時也能加深自己和東南亞的連結！</p>
 <blockquote>
@@ -657,10 +931,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>商業分析流程大公開：正確的心法，Excel 也能做分析</title>
-            <link>https://theryanlin.github.io/posts/2020/05/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%A4%A7%E5%85%AC%E9%96%8B%E6%AD%A3%E7%A2%BA%E7%9A%84%E5%BF%83%E6%B3%95excel-%E4%B9%9F%E8%83%BD%E5%81%9A%E5%88%86%E6%9E%90/</link>
+            <link>https://theryanlin.github.io/posts/2020/05/4/</link>
             <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/05/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%A4%A7%E5%85%AC%E9%96%8B%E6%AD%A3%E7%A2%BA%E7%9A%84%E5%BF%83%E6%B3%95excel-%E4%B9%9F%E8%83%BD%E5%81%9A%E5%88%86%E6%9E%90/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/05/4/</guid>
             <description>近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在P</description>
             <content type="html"><![CDATA[<p>近期申請MSBA（Master of Science in Business Analytics）的人數越來越多，我自己也是其中之一，在看過非常多分享的文章和書後，回想自己過去在PCB廠當幕僚的經驗，完成專案的方式也和商業分析有些關係，雖然沒有很厲害的預測模型，並且只使用Excel和PPT，我將以此經驗作為例子來說明商業分析的心法！或許也能幫助你回想，自己過去的成果，並且包裝成商業分析的經驗放在履歷中。</p>
 <p><img src="https://cdn-images-1.medium.com/max/3420/1*dFpRpjzRa-qFdQ19NWEtKw.png" alt="商業分析流程。圖／Ryan自製"><em>商業分析流程。圖／Ryan自製</em></p>
@@ -681,10 +955,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>用 Tableau 互動圖表來看台灣旅遊業二次重創</title>
-            <link>https://theryanlin.github.io/posts/2020/04/%E7%94%A8-tableau-%E4%BA%92%E5%8B%95%E5%9C%96%E8%A1%A8%E4%BE%86%E7%9C%8B%E5%8F%B0%E7%81%A3%E6%97%85%E9%81%8A%E6%A5%AD%E4%BA%8C%E6%AC%A1%E9%87%8D%E5%89%B5/</link>
+            <link>https://theryanlin.github.io/posts/2020/04/3/</link>
             <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/04/%E7%94%A8-tableau-%E4%BA%92%E5%8B%95%E5%9C%96%E8%A1%A8%E4%BE%86%E7%9C%8B%E5%8F%B0%E7%81%A3%E6%97%85%E9%81%8A%E6%A5%AD%E4%BA%8C%E6%AC%A1%E9%87%8D%E5%89%B5/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/04/3/</guid>
             <description>近期因為新冠肺炎的大流行，衝擊非常多的行業，各國政府也都在擬定紓困方案，如美國的高達2兆美元的方案、和我國的「一兆救台灣」。面對停航、旅遊禁</description>
             <content type="html"><![CDATA[<p>近期因為新冠肺炎的大流行，衝擊非常多的行業，各國政府也都在擬定紓困方案，如美國的高達2兆美元的方案、和我國的「一兆救台灣」。面對停航、旅遊禁令，首當其衝的觀光旅遊業受到波及相當大，再加上，近年台灣觀光旅遊業針對「陸客」政策有許多的不同的聲音，因此，希望藉由Tableau簡單分析 open data，討論暗潮洶湧、波動巨大的旅遊業。</p>
 <blockquote>
@@ -724,10 +998,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>新加坡商業分析研究所申請：2020 SMU MITB Offer!</title>
-            <link>https://theryanlin.github.io/posts/2020/03/%E6%96%B0%E5%8A%A0%E5%9D%A1%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80%E7%94%B3%E8%AB%8B2020-smu-mitb-offer/</link>
+            <link>https://theryanlin.github.io/posts/2020/03/2/</link>
             <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2020/03/%E6%96%B0%E5%8A%A0%E5%9D%A1%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E7%A0%94%E7%A9%B6%E6%89%80%E7%94%B3%E8%AB%8B2020-smu-mitb-offer/</guid>
+            <guid>https://theryanlin.github.io/posts/2020/03/2/</guid>
             <description>希望能以此篇記錄自己的逐夢的過程，同時鼓舞正在逐夢的你！ 1. 筆者背景 學歷：成大機械 GPA：69/100（直接公布百分制，避免各式GPA計算造成</description>
             <content type="html"><![CDATA[<blockquote>
 <p>希望能以此篇記錄自己的逐夢的過程，同時鼓舞正在逐夢的你！</p>
@@ -772,10 +1046,10 @@ Before Coding In the beginning, we don&amp;rsquo;t limit our thoughts on data th
         
         <item>
             <title>2019 年末轉換跑道，資料分析多家面試分享</title>
-            <link>https://theryanlin.github.io/posts/2019/11/2019-%E5%B9%B4%E6%9C%AB%E8%BD%89%E6%8F%9B%E8%B7%91%E9%81%93%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E5%A4%9A%E5%AE%B6%E9%9D%A2%E8%A9%A6%E5%88%86%E4%BA%AB/</link>
+            <link>https://theryanlin.github.io/posts/2019/11/1/</link>
             <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
             
-            <guid>https://theryanlin.github.io/posts/2019/11/2019-%E5%B9%B4%E6%9C%AB%E8%BD%89%E6%8F%9B%E8%B7%91%E9%81%93%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E5%A4%9A%E5%AE%B6%E9%9D%A2%E8%A9%A6%E5%88%86%E4%BA%AB/</guid>
+            <guid>https://theryanlin.github.io/posts/2019/11/1/</guid>
             <description>我 2017 年成大機械學士畢業後即在一家傳產工作，接觸一點資料後，開始對資料分析、資料科學領域產生興趣，在了解後，想朝商業分析前進，故今年過年後毅然</description>
             <content type="html"><![CDATA[<p>我 2017 年成大機械學士畢業後即在一家傳產工作，接觸一點資料後，開始對資料分析、資料科學領域產生興趣，在了解後，想朝商業分析前進，故今年過年後毅然決然離職，開始自學Python和其他資料分析工具，除了上線上課程外，也會參加黑客松練練手，在 Kaggle 上玩玩題目，目前 Python pandas, matplotlib, selenium 都有接觸，鐵達尼號和房價預測的題目大概在 15% 左右，閒暇時後就在 Leetcode 刷刷 SQL 的題目，也會使用 Tableau、Prep。</p>
 <p>因為自己是半路出家，現在仍非常不成熟，從九月開始找工作就面臨很大的挑戰，也常被洗臉，故也想分享一下我的經驗，同時也想鼓勵同樣想轉行的朋友，這裡還有人跟你一樣在奮戰！過年前衝刺一波！</p>

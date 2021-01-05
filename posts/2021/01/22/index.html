@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框" />
+<meta name="keywords" content=", Product Analytics, Learning Notes, AB Testing" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/posts/2021/01/22/" />
+
+
+    <title>
+        
+            產品數據分析｜快速理解 A/B Testing ，提升產品決策品質 :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="產品數據分析｜快速理解 A/B Testing ，提升產品決策品質">
+<meta itemprop="description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框">
+<meta itemprop="datePublished" content="2021-01-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2766">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="Product Analytics,Learning Notes,AB Testing," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="產品數據分析｜快速理解 A/B Testing ，提升產品決策品質"/>
+<meta name="twitter:description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框"/>
+
+
+
+    <meta property="og:title" content="產品數據分析｜快速理解 A/B Testing ，提升產品決策品質" />
+<meta property="og:description" content="最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《產品數據分析 — 打造網路產品的決策引擎》，學習商業應用上的脈絡與框" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/posts/2021/01/22/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2021-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-05T00:00:00+00:00" />
+
+
+
+
+
+    <meta property="article:section" content="Analtics" />
+
+
+
+    <meta property="article:published_time" content="2021-01-05 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://theryanlin.github.io/posts/2021/01/22/">產品數據分析｜快速理解 A/B Testing ，提升產品決策品質</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <p>最近，我在 Hahow上一堂以商業應用為核心，結合產品策略與數據分析的課程 — 《<a href="https://hahow.in/courses/5e689828e612310028027876/main?mts_s=ap&amp;mts_m=ha&amp;oasId=5def54e5be44100022b369ef">產品數據分析 — 打造網路產品的決策引擎</a>》，學習商業應用上的脈絡與框架，作業以 Case Study 的方式為主，利用所學的分析方法、產品策略、思考架構，回答產品個案的相關問題。</p>
+<p>學習建立數據指標體系、擬定產品策略後，在日常工作上，指標會浮動、變化，為了理解指標變動的因果關係，許多團隊都會利用 A/B Testing 來實驗、驗證，這個方法也已經非常廣泛的應用在軟體開發、迭代的過程。</p>
+<h2 id="0-簡介">0. 簡介</h2>
+<p>我根據 Hahow 的課程內容和 Udacity 上的熱門課程《<a href="https://www.udacity.com/course/ab-testing--ud257">A/B Testing by Google</a>》整理成文章，並以 Udacity Final Project 為主要討論。</p>
+<h3 id="ab-testing">A/B Testing</h3>
+<p>A/B Testing 的概念其實不難，就是提供使用者兩個版本的產品，經由統計假說檢定，來判斷實驗結果是否會如我們的預期，特定變數會產生顯著差異，例如：增加註冊步驟，能夠降低註冊率。</p>
+<p>雖然實際執行上有很多的 Tips 和嚴謹的細節控制，但這篇主要以方法論為主，我將流程簡化成以下幾個步驟，分享 A/B Testing 的基本概念、流程，不著墨在統計與理論上，並製作了 <a href="https://theryanlin.github.io/posts/2021/01/21">Cheat Sheet</a>，讓大家在面試前能夠快速複習！</p>
+<h2 id="1-商業洞察好的問題決定實驗方向">1. 商業洞察，好的問題決定實驗方向</h2>
+<p>身爲商業分析師、或依數據做決策的職位，我們必須同時了解業務需求和資料應用，左手用 Python 處理資料，右手撰寫投影簡報。日常工作幾乎都和資料為伍，整理資料、了解資料外，也需要利用商業邏輯來詮釋資料。從資料發現 Insight 後、產品改動決策前，我們可以依賴 A/B Testing 的結果，作為決策參考之一。</p>
+<p>舉例而言，Udacity 認為一週上線課程時間太短的學生容易取消課程，因此他們想在學生點選 <code>start free trial</code> 按鈕後、註冊前，多一個步驟，詢問學生預期的每週學習時間，如果學生回答的時數低於五小時，則建議他不要註冊，直接免費觀看課程影片（不會拿到證書），希望能減少早期取消率。</p>
+<p>足夠的領域知識，加上好的觀察和現象，能夠幫助我們提出對的問題，也能帶領產品往好的方向發展。</p>
+<h2 id="2-實驗設計讓你實驗不做白工">2. 實驗設計，讓你實驗不做白工</h2>
+<p>實驗設計是 A/B Testing 最重要的環節，會直接影響實驗成敗和決策品質，選定指標尤其重要！</p>
+<h3 id="選定指標">選定指標</h3>
+<p>根據我們的商業假說：詢問學生預期的每週學習時間可以降低學生註冊率。接著需要選擇合適的指標來進行實驗，指標分為兩種：</p>
+<p><strong>實驗指標（Evaluation）</strong>：真正衡量此次實驗所造成的影響，實驗指標的選定和商業假說和目標有關，一次實驗只能有一個實驗指標，確保實驗邏輯能夠驗證因果關係。</p>
+<p>例如：註冊率</p>
+<p><strong>控制指標（Invariant）</strong>：用來做驗證實驗，不應該在實驗組和控制組之間發生變化，否則代表實驗不正確。</p>
+<p>例如：進入網頁的 cookie 數量、點選 <code>start free trial</code> 的 cookie 數量、點擊率</p>
+<p>指標的選定必須經過嚴格的考量，我們可以藉由一些測試來判斷指標是否堪用。</p>
+<h3 id="指標測試">指標測試</h3>
+<p>選定的指標需要具備靈敏度與穩定度，舉例來說，我們會想了解解析度和影片串流延遲的影響，希望指標能夠根據不同解析度產生變化，但不希望指標在不同影片間隨意變動！</p>
+<p><strong>靈敏度（Sensitivity）</strong>：實驗變數能有效看出差異，對同群人來說，解析度改變會影響串流延遲。
+<strong>穩健性（Robustness）</strong>：控制指標不會對指標造成隨意變動，對不同群人來說，類似的影片不會影響串流延遲。</p>
+<p>我們可以藉由 A/A Testing 來衡量靈敏度和穩健性，確保實驗在改動前，指標在不同群體間具有代表性。</p>
+<p><strong>A/A Testing</strong>：和 A/B Testing 的差異在於，平分流量到控制組、實驗組，判斷相同體驗之間的是否沒有差異。</p>
+<h3 id="分組與抽樣">分組與抽樣</h3>
+<p>實驗通常只會針對特定的一小群人進行，因此需要找出符合我們假說的目標群體，選擇恰當的分組方式和抽樣方法。</p>
+<p><strong>分組方式</strong>：常見的分組方式可以依據人口統計資料 Demographic、市場類型（包含國家、市場規模）、平台、用戶行為進行分群。
+<strong>抽樣方法</strong>：樣本單位（劃分的最小粒度）可以是 Cookie、User ID、Device ID，依照不同的需求，使用不同的單位，進行抽樣。</p>
+<p>好的分組和抽樣方式可以確保隨機性與獨立性，避免實驗產生偏剖。此實驗以 Cookie 為主，因為註冊前無法得知使用者的 User ID！</p>
+<h3 id="統計檢定">統計檢定</h3>
+<p>建立商業假說後，我們在這個步驟將其轉換成統計假說，設立虛無假設（H0） 與對立假設（H1）。</p>
+<p><strong>虛無假設（Null Hypothesis）</strong>：這個改動不會有效地減少課程註冊率。<br>
+<strong>對立假設（Alternative Hypothesis）</strong>：這個改動會有效地減少課程註冊率。</p>
+<p>並且準備下列要素，以此計算實驗所需樣本數量。</p>
+<ol>
+<li>原始轉換率（Baseline Conversion Rate）：20.625%</li>
+<li>最小改善程度（Minimum Detectable Effect, MDE）：1%</li>
+<li>顯著水準（Significant Level, α）：5%</li>
+<li>檢定力（Power, 1-β）：80%</li>
+</ol>
+<h3 id="樣本數量">樣本數量</h3>
+<p>可以利用這個<a href="https://www.evanmiller.org/ab-testing/">工具</a>將上述數值輸入，即可取得樣本數量為 25,835 註冊人數／每組，而實驗分為控制組和實驗組，因此總共需要 51,670 註冊人數。</p>
+<p><img src="https://cdn-images-1.medium.com/max/3336/1*OKXr1fm_TtrvqeLBvGQLUg.png" alt="Sizing。圖／Ryan"><em>Sizing。圖／Ryan</em></p>
+<h2 id="3-實驗進行">3. 實驗進行</h2>
+<p>計算所需要的樣本數後，要將流量平均分配在一定的時間單位內，實驗時長通常為一至兩週，且在實驗期間內，要考慮週期性或是其他因素，例如，國定假日可能導致流量較高，避免實驗期間環境和實驗設計時的考量有衝突，影響準確性。</p>
+<p>實驗進行中，應進行監測，以免技術錯誤或其他技術問題，造成偏誤，同時，當達到實驗所需的樣本數後，應該隨即結束實驗，切勿因為結果尚未達到顯著性，而繼續實驗，因以實驗的設計為主，實驗時間拉長，可能造成<strong>顯著性陷阱（增加樣本數能夠同時降低 α、β）</strong>。</p>
+<h2 id="4-結果分析">4. 結果分析</h2>
+<p>實驗結束後，切勿沒有計算統計檢定，只看最終數字變化（控制組的註冊數量少於實驗組），就妄下決定！很有可能實驗組只是「隨機」出現你想看到的結果，因此我們首先要做完整性測試（Sanity Check），確保我們的實驗設置和進行都是正確的，然後再來分析結果並給出結論與建議。</p>
+<h3 id="sanity-check">Sanity Check</h3>
+<p>控制組和實驗組會在點選 “start free trial”，才會面對不同的頁面，因此在此之前的數據應該保持一致，控制指標在兩組間不隨意變動。未通過 Sanity Check 代表實驗不正確，不需要繼續分析後續結果，應回頭檢視實驗步驟，找出錯誤環節。</p>
+<p><img src="https://cdn-images-1.medium.com/max/2920/1*ZtoB9rw62fU8j1IuXP3JzA.png" alt="Sanity Check Table。圖／Ryan"><em>Sanity Check Table。圖／Ryan</em></p>
+<h3 id="實驗顯著性">實驗顯著性</h3>
+<p>計算實驗變數在兩組間是否有顯著差異，顯著水準需要小於 α、檢定力大於（1-β），同時考慮絕對值與分佈，信賴區間越窄越好。</p>
+<p>增加詢問學生預期的每週學習時間後（實驗組），在學生註冊課程的場景中，實驗組相較控制組降低了 2.1% 的完成註冊率，達到統計上的顯著性！</p>
+<p><img src="https://cdn-images-1.medium.com/max/2428/1*ROIfYu5X4C3aHcz-VJvsew.png" alt="Significant Level。圖／Ryan"><em>Significant Level。圖／Ryan</em></p>
+<h2 id="5-後續行動">5. 後續行動</h2>
+<p>實驗是為了幫助我們做決定，但是實驗的顯著性跟是否要將改動上線其實是兩件事，畢竟仍有許多更動造成的結果是不可量化的。</p>
+<p>上述實驗雖然降低了學生的註冊率，但不一定可以有效減少早期取消率，或是有其他成本的考量、也可能產生使用者反感、忽略辛普森悖論等等的，需要做後續更多的實驗、或是釐清使用者行為等，才能決定是否要上線。</p>
+<p>上述提供的資料和實驗僅是為了說明，實際上 Udacity Final Project 有更多的問題、實驗的設置，如果大家有興趣的話，非常建議可以把這堂線上課程上完，如果內容有誤，也請大家留言幫忙勘誤！</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/product-analytics/">Product Analytics</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/learning-notes/">Learning Notes</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/ab-testing/">AB Testing</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/analtics/">Analtics</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2766 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-01-05
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://theryanlin.github.io/posts/2021/01/21/">
+                <span class="button__icon">←</span>
+                <span class="button__text">AB Testing Cheat Sheet</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://theryanlin.github.io/posts/2020/12/19/">
+                <span class="button__text">藏有米其林美食、定義新加坡庶民文化 —「小販中心」獲選聯合國非物質文化遺產</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

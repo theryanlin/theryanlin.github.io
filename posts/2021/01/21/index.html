@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Ryan Lin]">
+<meta name="description" content="Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp;amp; Can&amp;rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&amp;rsquo;t Do:" />
+<meta name="keywords" content=", AB Testing, Cheat Sheet, Interview Preparation" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://theryanlin.github.io/posts/2021/01/21/" />
+
+
+    <title>
+        
+            AB Testing Cheat Sheet :: LIN Tzu Chun (Ryan) 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://theryanlin.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theryanlin.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theryanlin.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theryanlin.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://theryanlin.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://theryanlin.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://theryanlin.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="AB Testing Cheat Sheet">
+<meta itemprop="description" content="Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp; Can&rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&rsquo;t Do:">
+<meta itemprop="datePublished" content="2021-01-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="985">
+<meta itemprop="image" content="https://theryanlin.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="AB Testing,Cheat Sheet,Interview Preparation," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://theryanlin.github.io/"/>
+
+<meta name="twitter:title" content="AB Testing Cheat Sheet"/>
+<meta name="twitter:description" content="Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp; Can&rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&rsquo;t Do:"/>
+
+
+
+    <meta property="og:title" content="AB Testing Cheat Sheet" />
+<meta property="og:description" content="Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp; Can&rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&rsquo;t Do:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://theryanlin.github.io/posts/2021/01/21/" />
+<meta property="og:image" content="https://theryanlin.github.io/"/>
+<meta property="article:published_time" content="2021-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-05T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Analytics" />
+
+
+
+    <meta property="article:published_time" content="2021-01-05 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://theryanlin.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://theryanlin.github.io/about/">About</a></li><li><a href="https://theryanlin.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://theryanlin.github.io/posts/2021/01/21/">AB Testing Cheat Sheet</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <h2 id="introduction">Introduction</h2>
+<p>We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.</p>
+<p>The existing version is the control group and another one with changes is the experimental group.</p>
+<h3 id="can-do--cant-do">Can Do &amp; Can&rsquo;t Do</h3>
+<p><strong>Can Do:</strong></p>
+<ul>
+<li>just for a small change at one time</li>
+<li>makes changes gradually</li>
+</ul>
+<p><strong>Can&rsquo;t Do:</strong></p>
+<ul>
+<li>mostly for shot-term evaluations, not for long-term</li>
+<li>not for brand-new products or features</li>
+</ul>
+<h3 id="pros-and-cons">Pros and cons</h3>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>helps draw causal conclusions</li>
+<li>makes changes gradually</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>takes time when don&rsquo;t have enough traffic</li>
+<li>doesn’t solve usability problems</li>
+</ul>
+<h2 id="experiment-design">Experiment Design</h2>
+<h3 id="metric-choice">Metric Choice</h3>
+<p><strong>Invariant metrics</strong> are those which remain invariant throughout the experiment. One could expect a similar distribution of such metrics both on control and experiment side. In the given experiment, the invariant metrics are as follows.</p>
+<p><strong>Evaluation metrics</strong> are chosen since there is a possibility of different distribution between experiment and control groups as a function of experiment. Each evaluation metric is associated with a minimum difference that must be observed for consideration in the decision to launch the experiment. The ultimate goal is to minimize student frustration and use the limited coaching resources most efficiently. With this in mind, the following conditions must be satisfied.</p>
+<h3 id="metric-measurement">Metric Measurement</h3>
+<p><strong>Sensitivity</strong> is an ability that metrics are sensitive enough to capture the changes we care about.</p>
+<p><strong>Robustness</strong> is an ability that metrics are steady enough to not capture the changes we don&rsquo;t care about.</p>
+<p>To measure sensitivity and robustness we can:</p>
+<ul>
+<li><strong>A/A test</strong>: Both control and experiment groups are exposed to the same version, then metrics should be similar in 2 group if they are robust enough.</li>
+<li><strong>Retrospective analysis:</strong> Depands on the history data, then we can analyze and evaluate robustness</li>
+</ul>
+<h3 id="choice-of-experimental-unit-and-population">Choice of Experimental Unit and Population</h3>
+<p><strong>Experimental unit</strong> is the minimul unit to define which user or which event is assigned to the control and experiment group. It is an unique identifier like a user id, a cookie, or event id. When we choose an experimental unit, we should consider 3 import things:</p>
+<ul>
+<li><strong>User consistency</strong>: we have to recognize different users, making users have consistent experience throughout.</li>
+<li><strong>Ethical considerations</strong>: Some ethical considerations are risk, benefit and privacy. For example: discriminatory pricing would make users uncomfortable.</li>
+<li><strong>Variability of metric</strong>: The choice of unit of diversion can greatly impact the variability of a metric.</li>
+</ul>
+<p><strong>Population</strong> is the people we are trying to implement an experiment on.</p>
+<h3 id="hypothesis"><strong>Hypothesis</strong></h3>
+<p><strong>Null Hypothesis</strong> is that this approach might not make a significant change and might not be effective in your expectation.</p>
+<p><strong>Alternative Hypothesis</strong> is that this might meet your expectation.</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Positive</th>
+<th align="left">Negative</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">H1 (True)</td>
+<td align="left">True Positive (TP)</td>
+<td align="left">True Negative (TN) Type II Error</td>
+<td align="left">Sensitivity</td>
+</tr>
+<tr>
+<td align="left">H0 (False)</td>
+<td align="left">False Positive (FP) Type I Error</td>
+<td align="left">False Nagetive (FN)</td>
+<td align="left">Speciicity</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Precision</td>
+<td align="left"></td>
+<td align="left">Accurary</td>
+</tr>
+</tbody>
+</table>
+<h3 id="confidence-intervals">Confidence Intervals</h3>
+<p><strong>Confidence Interval</strong> is a range of values we are fairly sure our true value lies in. A 95% confidence interval is a range of values that you can be 95% certain contains the true mean of the population.</p>
+<p><strong>Z-Score</strong> tells you how many standard deviations from the mean your score is. Assuming a normal distribution, your z score would be: <code>z = (x – μ) / (σ / √n)</code></p>
+<p><img src="https://theryanlin.github.io/21/Confidence_Interval.jpg" alt="Confidence_Interval"></p>
+<p><a href="https://www.notion.so/bd517aa514bd4da989c17d5c36478149">Z-Score for Various Confidence Levels</a></p>
+<h3 id="α--β">α &amp; β</h3>
+<p><strong>Significance Level, α</strong>, is the probability of rejecting the null hypothesis when it is true (Type I Error). For example, a significance level of 0.05 indicates a 5% risk of concluding that a difference exists when there is no actual difference.</p>
+<p><strong>Statistical Power, 1 - β</strong>, is the probability of a hypothesis test of finding an effect if there is an effect to be found. β refers to the probability of Type II error in a statistical hypothesis test.</p>
+<p><img src="https://theryanlin.github.io/21/Type_I_Error__Type_II_Error.jpg" alt="Type_I_Error__Type_II_Error.jpg"></p>
+<h3 id="minimum-detectable-effect">Minimum Detectable Effect</h3>
+<p><strong>Minimum Detectable Effect, MDE</strong> represents the relative minimum improvement over the baseline that you&rsquo;re willing to detect in an experiment, to a certain degree of statistical significance. The lower MDE, the more traffic you need to detect minor changes, hence the more money you have to spend on driving that traffic. There’s no such thing as an ideal MDE, so take money, time, and other business risks into consideration when defining MDE.</p>
+<h3 id="number-of-samples">Number of Samples</h3>
+<p>Page views required for each evaluation metric is calculated separately using the online calculator. The alpha vaue of 0.05 and beta value of 0.2 is used in all the cases.</p>
+<h3 id="duration-of-the-experiment">Duration of the experiment</h3>
+<p><strong>The duration of the experiment</strong> is related to the fraction of the traffic you wish to send through the experiment. If you need a total of 20K users for your experiment and sending 500 users per group per day, you would need to run the experiment for 20 days. However, once the number of users meets your requirement, you should stop the experiment to avoid more users.</p>
+<h2 id="experiment-analysis">Experiment Analysis</h2>
+<h3 id="sanity-check">Sanity Check</h3>
+<p><strong>Sanity Check</strong> is primarily for the invariant metrics. For invariant metrics we expect equal diversion into the experiment and control group. We will test this at the 95% confidence interval.</p>
+<p><a href="https://www.notion.so/aa60b18785ce42e093def8d0b3fd3187">Sanity Check Table</a></p>
+<h3 id="result-analysis"><strong>Result Analysis</strong></h3>
+<p>95% Confidence interval for the difference between the experiment and control group for evaluation metrics. The result is satistically significant only when the 95% confidence interval does not include zero.</p>
+<p><a href="https://www.notion.so/ed8c7b1d80f64ab5b5b57deb3a804cb8">Result Analysis</a></p>
+<h3 id="sign-tests"><strong>Sign Tests</strong></h3>
+<p>Sign test is just an another method to validate the result obtained above. The sensitivity of sign test is lower than that of the above test.</p>
+<p><a href="https://www.notion.so/5ec41ce539b9412bb8f33d814728858b">Sign Tests</a></p>
+<h2 id="summary">Summary</h2>
+<h3 id="quick-tips">Quick Tips</h3>
+<ol>
+<li>Only conduct one test at a time</li>
+<li>Test one variable at a time</li>
+<li>Test minor change</li>
+<li>Split your sample group randomly</li>
+<li>Test 2 versions at the same time</li>
+<li>Decide what you want to test</li>
+<li>Decide on the necessary significance level before testing</li>
+</ol>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://github.com/shubhamlal11/Udacity-AB-Testing-Final-Project">Udacity AB Testing Final Project On GitHub</a></li>
+<li><a href="https://medium.com/@fin790729/a-b-test%E7%B8%BD%E6%95%B4%E7%90%86-da05939f375f">Udacity AB Testing Notes On Medium</a></li>
+<li><a href="https://cdn2.hubspot.net/hubfs/53/AB_Test_Kit_Intro_ToAB_Testing_for_Marketing_optimization.pdf?submissionGuid=fd1d599e-33c5-451e-88f5-b042a98d2a07">Hubspot Guideline</a></li>
+<li><a href="https://highscope.ch.ntu.edu.tw/wordpress/?p=73236">Type I Error &amp; Type II Error</a></li>
+</ul>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/tags/ab-testing/">AB Testing</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/cheat-sheet/">Cheat Sheet</a></span>
+        <span class="tag"><a href="https://theryanlin.github.io/tags/interview-preparation/">Interview Preparation</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://theryanlin.github.io/categories/analytics/">Analytics</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        985 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-01-05
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://theryanlin.github.io/posts/2021/01/20/">
+                <span class="button__icon">←</span>
+                <span class="button__text">SQL Cheat Sheet</span>
+              </a>
+            </span>
+          
+
+          
+            <span class="button next">
+              <a href="https://theryanlin.github.io/posts/2021/01/22/">
+                <span class="button__text">產品數據分析｜快速理解 A/B Testing ，提升產品決策品質</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+                <span><a>Ryan Lin</a></span>
+            
+            
+        </div>
+    </div>
+
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://theryanlin.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

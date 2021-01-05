@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheat Sheet on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/tags/cheat-sheet/</link>
+    <description>Recent content in Cheat Sheet on LIN Tzu Chun (Ryan)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://theryanlin.github.io/tags/cheat-sheet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Cheat Sheet</title>
+      <link>https://theryanlin.github.io/posts/2021/01/20/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2021/01/20/</guid>
+      <description>Insert INSERT INTO Student (SId, Sname, Sage, Ssex) VALUES (&amp;#39;01&amp;#39;, &amp;#39;John&amp;#39;, 1990-01-01, &amp;#39;M&amp;#39;) Update UPDATE Student Ssex = &amp;#39;F&amp;#39;, Sname = &amp;#39;Alison&amp;#39; WHERE SId = &amp;#39;01&amp;#39; Delete DELETE FROM Student WHERE SId = &amp;#39;01&amp;#39; Select SELECT * FROM Student; SELECT SId, Sname FROM Student; SELECT SC.SId, Student.Sname FROM SC, Student WHERE SC.SId = Student.SId; Where SELECT * FROM Student WHERE SId = &amp;#39;01&amp;#39; AND Sname = &amp;#39;Alex&amp;#39;; SELECT * FROM Student WHERE SId &amp;lt;&amp;gt; &amp;#39;01&amp;#39;; Order By (Sort) SELECT * FROM Student ORDER BY SId ASC; SELECT * FROM Student ORDER BY SId DESC; Concatenate Columns SELECT CONCAT(First_Name, &amp;#39; &amp;#39;, Last_Name) AS &amp;#39;Name&amp;#39; FROM Student; Select Distinct Rows SELECT DISTINCT SId FROM Student; Between (Select Range) SELECT * FROM SC WHERE score BETWEEN 60 AND 90; Like (Searching) SELECT * FROM Student WHERE Sname LIKE &amp;#39;A%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;Alex%&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%x&amp;#39;; SELECT * FROM Student WHERE Sname LIKE &amp;#39;%e%&amp;#39;; Not Like SELECT * FROM Student WHERE Sname NOT LIKE &amp;#39;A%&amp;#39;; IN SELECT * FROM Student WHERE Sname IN (&amp;#39;Alex&amp;#39;, &amp;#39;Bert&amp;#39;); Left Join SELECT Student.</description>
+    </item>
+    
+    <item>
+      <title>AB Testing Cheat Sheet</title>
+      <link>https://theryanlin.github.io/posts/2021/01/21/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/posts/2021/01/21/</guid>
+      <description>Introduction We create 2 versions of a product or a website with just a little change to a single variable. Then, we will show 2 versions to two similarly sized audiences and analyze which one performs better over a specific period of time.
+The existing version is the control group and another one with changes is the experimental group.
+Can Do &amp;amp; Can&amp;rsquo;t Do Can Do:
+ just for a small change at one time makes changes gradually  Can&amp;rsquo;t Do:</description>
+    </item>
+    
+  </channel>
+</rss>

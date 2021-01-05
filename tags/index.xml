@@ -6,10 +6,64 @@
     <description>Recent content in Tags on LIN Tzu Chun (Ryan)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://theryanlin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AB Testing</title>
+      <link>https://theryanlin.github.io/tags/ab-testing/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/ab-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cheat Sheet</title>
+      <link>https://theryanlin.github.io/tags/cheat-sheet/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/cheat-sheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Interview Preparation</title>
+      <link>https://theryanlin.github.io/tags/interview-preparation/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/interview-preparation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning Notes</title>
+      <link>https://theryanlin.github.io/tags/learning-notes/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/learning-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Product Analytics</title>
+      <link>https://theryanlin.github.io/tags/product-analytics/</link>
+      <pubDate>Tue, 05 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/product-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://theryanlin.github.io/tags/sql/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Findings</title>
@@ -35,24 +89,6 @@
       <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://theryanlin.github.io/tags/travel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Learning Notes</title>
-      <link>https://theryanlin.github.io/tags/learning-notes/</link>
-      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/tags/learning-notes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Product Analytics</title>
-      <link>https://theryanlin.github.io/tags/product-analytics/</link>
-      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/tags/product-analytics/</guid>
       <description></description>
     </item>
     
