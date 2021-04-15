@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SMU on LIN Tzu Chun (Ryan)</title>
-    <link>https://theryanlin.github.io/tags/smu/</link>
-    <description>Recent content in SMU on LIN Tzu Chun (Ryan)</description>
+    <title>MITB on LIN Tzu Chun (Ryan)</title>
+    <link>https://theryanlin.github.io/tags/mitb/</link>
+    <description>Recent content in MITB on LIN Tzu Chun (Ryan)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://theryanlin.github.io/tags/smu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://theryanlin.github.io/tags/mitb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://theryanlin.github.io/posts/2021/04/23/</guid>
       <description>我目前正在就讀 SMU MITB（Master of Information Technology in Business），當初申請了三所新加坡大學的 Business Analytics 學程（申請過程），尚未抵達新加坡前，透過網路</description>
-    </item>
-    
-    <item>
-      <title>新加坡商業分析研究所申請：2020 SMU MITB Offer!</title>
-      <link>https://theryanlin.github.io/posts/2020/03/2/</link>
-      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/posts/2020/03/2/</guid>
-      <description>希望能以此篇記錄自己的逐夢的過程，同時鼓舞正在逐夢的你！ 1. 筆者背景 學歷：成大機械 GPA：69/100（直接公布百分制，避免各式GPA計算造成</description>
     </item>
     
   </channel>

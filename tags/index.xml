@@ -6,10 +6,37 @@
     <description>Recent content in Tags on LIN Tzu Chun (Ryan)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://theryanlin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Business Analytics</title>
+      <link>https://theryanlin.github.io/tags/business-analytics/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/business-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MITB</title>
+      <link>https://theryanlin.github.io/tags/mitb/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/mitb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SMU</title>
+      <link>https://theryanlin.github.io/tags/smu/</link>
+      <pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://theryanlin.github.io/tags/smu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AB Testing</title>
@@ -102,15 +129,6 @@
     </item>
     
     <item>
-      <title>Business Analytics</title>
-      <link>https://theryanlin.github.io/tags/business-analytics/</link>
-      <pubDate>Thu, 24 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/tags/business-analytics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Data Analytics</title>
       <link>https://theryanlin.github.io/tags/data-analytics/</link>
       <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
@@ -170,15 +188,6 @@
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://theryanlin.github.io/tags/application/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SMU</title>
-      <link>https://theryanlin.github.io/tags/smu/</link>
-      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://theryanlin.github.io/tags/smu/</guid>
       <description></description>
     </item>
     
